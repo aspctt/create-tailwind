@@ -1,0 +1,25 @@
+name: Update latest tag
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  retag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Point latest at the new release tag
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          git tag -f latest "$TAG"
+          git push -f origin latest

@@ -1,0 +1,73 @@
+###############################################################################
+# Create: Airbound - .gitignore for a Java / NeoForge Minecraft mod
+###############################################################################
+
+## Gradle build output
+build/
+.gradle/
+gradletasknamecache
+gradle-app.setting
+
+## Stonecutter
+# versions/<target>/gradle.properties is tracked and declares that target;
+# everything else under a version directory is generated.
+versions/*/build/
+versions/*/.gradle/
+versions/*/src/
+
+# gradle/wrapper/gradle-wrapper.jar is intentionally TRACKED. It is what lets a
+# fresh clone run ./gradlew without Gradle installed, so never add a blanket
+# *.jar rule here.
+
+## Local maven repository, written by the publishing block in common.gradle.kts
+repo/
+
+## IDE / editor cruft
+.idea/
+.vscode/
+.vs/
+out/
+*.iml
+*.ipr
+*.iws
+.settings/
+.metadata/
+.classpath
+.project
+bin/
+eclipse/
+*.launch
+
+## OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Development runtime
+# Produced by launching the game: worlds, logs, crash reports, options, and the
+# mods dropped into run/mods for testing. A world save in particular would be
+# both large and meaningless to anyone else.
+run/
+runs/
+run-server/
+run-data/
+
+## Crash artefacts, wherever they land
+crash-reports/
+*.hprof
+hs_err_pid*.log
+
+###############################################################################
+# Local-only working material. NOT for publication.
+#
+# external-files/ holds other-mods (third-party mods kept for reference), plus
+# photoshop, context-files and bug-reports. The third-party material is other
+# people's work under other people's licences. Anything this mod ends up using
+# from it is credited in NOTICE, and nothing else from it is shipped.
+#
+# Remove an entry only if you deliberately intend to publish it. See NOTICE.
+###############################################################################
+external-files/
+context-files/
+bug-reports/
+NOTES.md

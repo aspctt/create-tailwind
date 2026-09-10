@@ -1,0 +1,70 @@
+"Minecraft" is a trademark of Mojang Synergies AB; ©2009-2026 Mojang
+Synergies AB and Microsoft Corporation. This project is in no way associated
+with nor endorsed by Mojang Synergies AB or Microsoft Corporation.
+
+"Create" and the Create logo belong to the Create Team. Create: Airbound is an
+unofficial add-on, and is in no way associated with nor endorsed by the Create
+Team.
+
+Other trademarks and registered trademarks are the property of the respective
+trademark holders.
+
+
+THIRD-PARTY COMPONENTS
+
+Build tooling in this repository derives from the NeoForged Mod Development Kit
+and is used under the MIT License:
+
+    MIT License
+
+    Copyright (c) 2023 NeoForged project
+
+    This license applies to the template files as supplied by
+    github.com/NeoForged/MDK
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+
+Create: Airbound is built against the NeoForge modding platform, licensed
+under the GNU Lesser General Public License v2.1. NeoForge is not bundled with
+or redistributed by this project.
+
+Create: Airbound compiles against the code of Create, licensed under the MIT
+License, Copyright (c) The Create Team / The Creators of Create. Create's own
+assets are All Rights Reserved and are not copied into this project. Create is
+required at runtime, and is not bundled with or redistributed by this project.
+
+Ponder, Flywheel, and Registrate are resolved at build time alongside Create.
+Each remains under its own license, is supplied to the end user by Create, and
+is not bundled with or redistributed by this project.
+
+Just Enough Items is used as a development dependency for viewing recipes in
+the development environment. It is not required at runtime, and is not bundled
+with or redistributed by this project.
+
+No third-party source code is included in this project.
+
+
+ASSETS
+
+No assets are shipped yet. Models or textures taken from other mods will be
+listed here with their source, author, and the license or permission they are
+used under.
+
+
+© 2026 ASPCT

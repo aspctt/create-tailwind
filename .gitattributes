@@ -1,0 +1,28 @@
+# Text files: detected automatically, stored and checked out with LF endings.
+# "text=auto" rather than a bare "text" matters. Setting it outright declares
+# every file in the repository to be text, which overrides Git's own detection
+# and strips CR bytes out of binaries as they are committed. Nothing complains:
+# the file is compared after that same normalisation, so it reads as unchanged
+# while what is stored no longer matches what is on disk.
+* text=auto eol=lf
+
+# Batch files are run by cmd.exe, which wants CRLF. Stored LF, checked out CRLF.
+*.bat text eol=crlf
+
+# Disable autocrlf on generated files, they always generate with LF.
+# The datagen cache is a set of hash-named files, so match the whole directory.
+# Add any extra files or paths here to make git stop saying they
+# are changed when only line endings change.
+src/generated/**/.cache/** text eol=lf
+src/generated/**/*.json text eol=lf
+
+# Binaries, kept byte for byte. Auto-detection already covers these; naming them
+# is the belt to its braces, since the failure is silent and only shows up in a
+# fresh clone.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.psd binary
+*.jar binary
+*.zip binary

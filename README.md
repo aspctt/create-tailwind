@@ -1,0 +1,68 @@
+# <p align=center> Create: Airbound </p>
+
+<div align="center">
+
+![Version](https://img.shields.io/badge/Available_for-1.21.1-blue)
+![Requires](https://img.shields.io/badge/Requires-Create_6.0.x-blueviolet)
+![License](https://img.shields.io/badge/License-Not_decided-lightgrey)
+
+![NeoForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg)
+![Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg)
+
+</div>
+
+## Description
+
+Create: Airbound adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
+
+The mod is in early development and has no gameplay yet. Version history is in [CHANGE_LOG.md](./CHANGE_LOG.md), and the text used on the mod pages is in [DESCRIPTION-MODRINTH.md](./DESCRIPTION-MODRINTH.md) and [DESCRIPTION-CURSEFORGE.md](./DESCRIPTION-CURSEFORGE.md).
+
+## Installation
+
+Place the jar in the mods folder of your Minecraft instance, alongside NeoForge and Create.
+
+**REMOVE ANY OLD VERSIONS BEFORE INSTALLING**.
+
+## Dependencies
+
+* Minecraft 1.21.1
+* NeoForge 21.1.250 or newer
+* Create 6.0.10 or newer, below 6.1.0
+
+## Building
+
+The build is organised with [Stonecutter](https://stonecutter.kikugie.dev/), which compiles one source tree for several targets. Each target is a subproject under `versions/`, named `<minecraft version>-<loader>`, declared in `settings.gradle.kts` and configured by its own `gradle.properties`. Each loader has its own build script, `build.neoforge.gradle.kts` and `build.fabric-remap.gradle.kts`, and `common.gradle.kts` holds what they share.
+
+```
+./gradlew build                          # build every declared target
+./gradlew :1.21.1-neoforge:build         # build one
+./gradlew :1.21.1-neoforge:runClient     # run one, sharing the root run/ directory
+./gradlew :1.21.1-neoforge:runData       # regenerate data under src/generated
+```
+
+Jars are written to `versions/<target>/build/libs`, named `CreateAirbound-<version>+<minecraft version>-<loader>.jar`.
+
+| Target | Status |
+|---|---|
+| 1.21.1-neoforge | declared |
+| 1.21.1-fabric | prepared, not declared: Create's Fabric port has no 1.21.1 build to compile against yet |
+
+The Fabric target compiles only the `fabric` package, which holds its entry point. Everything else is written against NeoForge and Create's NeoForge build, and waits for a Create Fabric release on 1.21.1. Declaring the target is one line in `settings.gradle.kts`, and `//? if fabric` and `//? if neoforge` are available to the source for the places the two loaders differ.
+
+## Licensing
+
+The licence for Create: Airbound has not been decided yet. Until it is, the project is **All Rights Reserved**, as stated in [LICENSE](./LICENSE).
+
+Please note the copyrights and trademarks in [NOTICE](./NOTICE), which will also list any third-party models and textures along with the permission they are used under.
+
+## Credits
+
+### Core Team
+
+* aspctt - code, project lead
+
+### Built against
+
+* The Create Team - [Create](https://github.com/Creators-of-Create/Create), whose compressed air powers this mod's jetpacks and boosters
+* NeoForged - [NeoForge](https://github.com/neoforged/NeoForge), and the MDK this project started from
+* mezz - [Just Enough Items](https://github.com/mezz/JustEnoughItems), used in the development environment
