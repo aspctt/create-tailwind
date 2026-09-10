@@ -1,4 +1,4 @@
-# <p align=center> Create: Airbound </p>
+# <p align=center> Create: Tailwind </p>
 
 <div align="center">
 
@@ -11,7 +11,7 @@
 
 </div>
 
-Create: Airbound adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
+Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
 
 ### Requirements
 
@@ -19,4 +19,4 @@ Minecraft 1.21.1, NeoForge 21.1.250 or newer, and Create 6.0.10 or newer in the 
 
 ### License
 
-The licence for Create: Airbound has not been decided yet. Until it is, the mod is All Rights Reserved.
+The licence for Create: Tailwind has not been decided yet. Until it is, the mod is All Rights Reserved.

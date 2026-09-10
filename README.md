@@ -1,4 +1,4 @@
-# <p align=center> Create: Airbound </p>
+# <p align=center> Create: Tailwind </p>
 
 <div align="center">
 
@@ -13,7 +13,7 @@
 
 ## Description
 
-Create: Airbound adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
+Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
 
 The mod is in early development and has no gameplay yet. Version history is in [CHANGE_LOG.md](./CHANGE_LOG.md), and the text used on the mod pages is in [DESCRIPTION-MODRINTH.md](./DESCRIPTION-MODRINTH.md) and [DESCRIPTION-CURSEFORGE.md](./DESCRIPTION-CURSEFORGE.md).
 
@@ -40,7 +40,7 @@ The build is organised with [Stonecutter](https://stonecutter.kikugie.dev/), whi
 ./gradlew :1.21.1-neoforge:runData       # regenerate data under src/generated
 ```
 
-Jars are written to `versions/<target>/build/libs`, named `CreateAirbound-<version>+<minecraft version>-<loader>.jar`.
+Jars are written to `versions/<target>/build/libs`, named `CreateTailwind-<version>+<minecraft version>-<loader>.jar`.
 
 | Target | Status |
 |---|---|
@@ -51,7 +51,7 @@ The Fabric target compiles only the `fabric` package, which holds its entry poin
 
 ## Licensing
 
-The licence for Create: Airbound has not been decided yet. Until it is, the project is **All Rights Reserved**, as stated in [LICENSE](./LICENSE).
+The licence for Create: Tailwind has not been decided yet. Until it is, the project is **All Rights Reserved**, as stated in [LICENSE](./LICENSE).
 
 Please note the copyrights and trademarks in [NOTICE](./NOTICE), which will also list any third-party models and textures along with the permission they are used under.
 

@@ -9,7 +9,7 @@ fun extraBuildMetadata(): String {
 }
 
 // Everything after the "+" is semver build metadata, so it is ignored when versions are compared while
-// still naming the jar and showing up in the mods list: CreateAirbound-1.0.0+1.21.1-neoforge.jar.
+// still naming the jar and showing up in the mods list: CreateTailwind-1.0.0+1.21.1-neoforge.jar.
 version = "${prop("mod_version")}+${prop("minecraft_version")}-${prop("mod_loader")}" + extraBuildMetadata()
 group = prop("mod_group_id")
 

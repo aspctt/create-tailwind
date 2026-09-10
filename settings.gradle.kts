@@ -33,4 +33,4 @@ stonecutter {
     }
 }
 
-rootProject.name = "createairbound"
+rootProject.name = "createtailwind"
