@@ -4,13 +4,14 @@
 
 ![Version](https://img.shields.io/badge/Available_for-1.21.1-blue)
 ![Requires](https://img.shields.io/badge/Requires-Create_6.0.x-blueviolet)
-![License](https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-blue)
+![License](https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-red)
 
 ![NeoForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg)
 ![Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg)
 
 [![GitHub](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg)](https://github.com/aspctt/create-tailwind)
 [![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg)](https://modrinth.com/mod/create-tailwind)
+[![CurseForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/create-tailwind)
 
 </div>
 

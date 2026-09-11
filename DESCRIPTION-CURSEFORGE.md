@@ -3,7 +3,7 @@
 <p style="text-align: center;">
 	<img src="https://img.shields.io/badge/Available_for-1.21.1-blue" alt="Version">
 	<img src="https://img.shields.io/badge/Requires-Create_6.0.x-blueviolet" alt="Requires">
-	<img src="https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-blue" alt="License">
+	<img src="https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-red" alt="License">
 </p>
 
 <p style="text-align: center;">
@@ -14,6 +14,7 @@
 <p style="text-align: center;">
 	<a href="https://github.com/aspctt/create-tailwind"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg" alt="Available on GitHub"></a>
 	<a href="https://modrinth.com/mod/create-tailwind"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg" alt="Available on Modrinth"></a>
+	<a href="https://www.curseforge.com/minecraft/mc-mods/create-tailwind"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_vector.svg" alt="Available on CurseForge"></a>
 </p>
 
 <p>Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.</p>
