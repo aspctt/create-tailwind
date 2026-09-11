@@ -18,6 +18,7 @@ Create: Tailwind adds compact jetpacks and boosters that run on compressed air. 
 The mod is in early development. For now, Create's backtanks stand in for the jetpacks:
 
 * Wear a backtank in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and you can fly the way creative mode does, by double-tapping jump.
+* A backtank in a Curios or Accessories back slot shows on your back just like one in the chest slot. With Accessories it follows the body as it is actually rendered, so reshaped player models such as Fresh Animations keep it in place.
 * Flight draws air from the backtank and cuts out when it runs dry.
 * Jetpack flight stays at the normal flying speed. Sprinting does not speed it up.
 * Fall damage still applies, and flying removes Invisibility. Both, along with the air cost, can be changed in the server config.

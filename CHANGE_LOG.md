@@ -7,5 +7,6 @@
 	+ Name the jar CreateTailwind-<version>+<minecraft version>-<loader>.jar, and ship LICENSE and NOTICE inside it
 	+ Add jetpack flight, adapted from Create: Backtank is Jetpack: a worn backtank grants creative-style flight that draws air from it and cuts out when it runs dry
 	+ Count a backtank worn in the chest slot, a Curios back slot, or an Accessories back slot, and make backtanks equippable in both back slots
+	+ Draw a backtank worn in a Curios or Accessories back slot on the player's back, the way Create draws one in the chest slot
 	+ Keep jetpack flight at the normal flying speed by not letting the player sprint while jetpack flying
 	+ Add a server config for the air cost per tick, fall damage immunity, and removing Invisibility while flying
