@@ -12,7 +12,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.entity.player.PlayerFlyableFallEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
@@ -98,20 +97,28 @@ public final class JetpackHandler {
         }
     }
 
+    // Where the exhaust leaves the tank: the centre of its bottom cap, as Create's layer draws the backtank on the
+    // body. In model pixels, the cap sits 10 below the body's pivot and 8 behind it. PlayerRenderer draws the
+    // model at 15/16 scale and LivingEntityRenderer lifts it by 1.501, both before the player's own scale.
+    private static final double PLAYER_MODEL_SCALE = 0.9375;
+    private static final double NOZZLE_HEIGHT = PLAYER_MODEL_SCALE * (1.501 - 10 / 16.0);
+    private static final double NOZZLE_BEHIND = PLAYER_MODEL_SCALE * 8 / 16.0;
+
     private static void emitExhaust(Player player) {
         if (!(player.level() instanceof ServerLevel level)) {
             return;
         }
-        Vec3 behind = player.getLookAngle().reverse();
-        double x = player.getX() + behind.x * 0.4;
-        double y = player.getY() + 0.6 + behind.y * 0.4;
-        double z = player.getZ() + behind.z * 0.4;
+        // The tank turns with the body rather than the head, so the nozzle follows the body's yaw.
+        double scale = player.getScale();
+        double yaw = Math.toRadians(player.yBodyRot);
+        double x = player.getX() + Math.sin(yaw) * NOZZLE_BEHIND * scale;
+        double y = player.getY() + NOZZLE_HEIGHT * scale;
+        double z = player.getZ() - Math.cos(yaw) * NOZZLE_BEHIND * scale;
         // Campfire signal smoke, the particle Do a Barrel Roll uses for its thrust trail, cut down to a second.
         // Spawned in place with no spread or speed, so it hangs where the player was and draws the flight path.
         level.sendParticles(ModParticles.JETPACK_SMOKE.get(), x, y, z, 1, 0, 0, 0, 0);
         if (player.tickCount % 10 == 0) {
-            level.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    AllSoundEvents.STEAM.getMainEvent(), SoundSource.PLAYERS, 1.0F, 0.5F);
+            level.playSound(null, x, y, z, AllSoundEvents.STEAM.getMainEvent(), SoundSource.PLAYERS, 1.0F, 0.5F);
         }
     }
 
