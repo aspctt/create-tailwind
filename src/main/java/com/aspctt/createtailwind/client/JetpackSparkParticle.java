@@ -28,7 +28,7 @@ public class JetpackSparkParticle extends TextureSheetParticle {
         this.lifetime = 6 + this.random.nextInt(7);
         this.gravity = 0.5F;
         this.friction = 0.92F;
-        this.quadSize = 0.06F + this.random.nextFloat() * 0.03F;
+        this.quadSize = 0.025F + this.random.nextFloat() * 0.015F;
         this.startGreen = 0.62F + this.random.nextFloat() * 0.18F;
         this.startBlue = 0.15F + this.random.nextFloat() * 0.1F;
         setColor(1.0F, startGreen, startBlue);

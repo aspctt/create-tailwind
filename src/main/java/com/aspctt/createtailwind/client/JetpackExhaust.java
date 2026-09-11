@@ -14,8 +14,8 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 // rather than the server sending them, so they cost nothing on the network and each player can turn them off.
 public final class JetpackExhaust {
     // Sparks per nozzle per tick while hovering and at full speed. The fraction is spawned as a chance.
-    private static final float SPARKS_HOVERING = 0.3F;
-    private static final float SPARKS_AT_FULL_SPEED = 1.2F;
+    private static final float SPARKS_HOVERING = 0.1F;
+    private static final float SPARKS_AT_FULL_SPEED = 0.4F;
     // How fast sparks leave the nozzle downwards, give or take two fifths, and how widely they scatter sideways,
     // in blocks per tick.
     private static final double EJECT_SPEED = 0.15;
