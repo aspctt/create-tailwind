@@ -11,6 +11,6 @@
 	+ Keep jetpack flight at the normal flying speed by not letting the player sprint while jetpack flying
 	+ Add a server config for the air cost per tick, fall damage immunity, and removing Invisibility while flying
 	+ Leave a short campfire smoke trail from the bottom of the backtank
-	+ Give jetpack flight an engine sound that follows each flying player: a rush of air that grows with speed, Create's cogwheel rumble and a lowered beacon hum behind it, and a faint steam hiss from Create on takeoff and every few seconds, fading in and out on takeoff and landing
+	+ Give jetpack flight an engine sound that follows each flying player: a rush of air that grows with speed, Create's cogwheel rumble and a lowered beacon hum behind it, and a faint steam hiss from Create on takeoff and every few seconds, more often at speed, fading in and out on takeoff and landing
 	+ Add a client config to turn the smoke trail and engine sound off, set the trail's lifetime and density, and set the engine volume
 	+ Add a config screen built with Yet Another Config Lib, optional at runtime, covering the client config and, in singleplayer, the server config

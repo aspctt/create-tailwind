@@ -26,7 +26,7 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 // The jetpack engine, started and stopped by what the server says about who is jetpack flying. Three looping
 // layers follow each flying player: the rush of the exhaust, which does most of the work of sounding like a
 // jetpack, with Create's cogwheel rumble and a low beacon drone behind it for the machinery. On top of those the
-// tank vents a faint steam hiss on takeoff and then every few seconds. The loops climb in pitch as the player speeds
+// tank vents a faint steam hiss on takeoff and then every few seconds, more often the faster the player goes. The loops climb in pitch as the player speeds
 // up, the rush most of all, and fade in on takeoff and out on landing rather than cutting.
 public final class JetpackEngineSounds {
     // Each loop: volume at rest, how much of that volume waits for speed, pitch at rest, and pitch gained at
@@ -35,13 +35,17 @@ public final class JetpackEngineSounds {
     private static final LayerSettings RUMBLE = new LayerSettings(0.45F, 0.25F, 0.9F, 0.4F);
     private static final LayerSettings HUM = new LayerSettings(0.3F, 0.25F, 0.6F, 0.25F);
 
-    // The hiss: the old exhaust sound's pitch, jittered a little, at irregular gaps of three to five seconds. Kept
-    // faint, since Create's steam recording is loud enough to bury the loops underneath it.
+    // The hiss: the old exhaust sound's pitch, jittered a little, at irregular gaps of three to five seconds while
+    // hovering. Kept faint, since Create's steam recording is loud enough to bury the loops underneath it.
     private static final float HISS_VOLUME = 0.05F;
     private static final float HISS_PITCH = 0.5F;
     private static final float HISS_PITCH_JITTER = 0.05F;
     private static final int HISS_MIN_TICKS = 60;
     private static final int HISS_MAX_TICKS = 100;
+    // How much faster the gap runs down at full speed, so a player pushing hard vents every second or so. It runs
+    // down at a rate that follows the current speed, rather than being shortened when set, so speeding up or
+    // slowing down changes the rhythm straight away.
+    private static final float HISS_RATE_AT_FULL_SPEED = 3.0F;
 
     // Blocks per tick at which the engine is working hardest: about the top speed of jetpack flight, which
     // cannot sprint.
@@ -107,6 +111,13 @@ public final class JetpackEngineSounds {
         return !entity.isRemoved() && FLYING.contains(entity.getId()) && TailwindClientConfig.EXHAUST_SOUND.get();
     }
 
+    // How hard the engine is working, from 0 when hovering to 1 at full speed, going by how far the entity moved
+    // since last tick.
+    private static float effort(Entity entity) {
+        double speed = Math.sqrt(entity.distanceToSqr(entity.xo, entity.yo, entity.zo));
+        return (float) Mth.clamp(speed / FULL_SPEED, 0.0, 1.0);
+    }
+
     private static float configuredVolume() {
         return TailwindClientConfig.EXHAUST_VOLUME.get() / 100.0F;
     }
@@ -118,7 +129,7 @@ public final class JetpackEngineSounds {
         private final Player player;
         private final List<Layer> layers;
         // Zero, so the first tick vents the takeoff hiss.
-        private int ticksToHiss;
+        private float ticksToHiss;
 
         Engine(Player player) {
             this.player = player;
@@ -139,7 +150,11 @@ public final class JetpackEngineSounds {
         }
 
         void tick() {
-            if (!isRunning(player) || --ticksToHiss > 0) {
+            if (!isRunning(player)) {
+                return;
+            }
+            ticksToHiss -= 1.0F + (HISS_RATE_AT_FULL_SPEED - 1.0F) * effort(player);
+            if (ticksToHiss > 0.0F) {
                 return;
             }
             RandomSource random = player.getRandom();
@@ -189,8 +204,7 @@ public final class JetpackEngineSounds {
                 return;
             }
 
-            double speed = Math.sqrt(entity.distanceToSqr(entity.xo, entity.yo, entity.zo));
-            float effort = (float) Mth.clamp(speed / FULL_SPEED, 0.0, 1.0);
+            float effort = effort(entity);
             float fromSpeed = settings.volumeFromSpeed();
             volume = settings.volume() * fade * (1.0F - fromSpeed + fromSpeed * effort) * configuredVolume();
             pitch = settings.pitch() + settings.pitchFromSpeed() * effort;
