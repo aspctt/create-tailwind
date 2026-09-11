@@ -19,8 +19,9 @@ public class JetpackSmokeParticle extends CampfireSmokeParticle {
     // Campfire smoke rises at 0.07 blocks a tick. This rises at half that.
     private static final double RISE_SPEED = 0.035;
     // The speed a puff leaves the nozzle at, heading down, and how much of the gap between its speed and the rise
-    // it keeps each tick. It sinks for about four ticks and two pixels before it starts to climb.
-    private static final double MUZZLE_SPEED = -0.06;
+    // it keeps each tick. It sinks about two pixels over five ticks, and is back up at the nozzle after about
+    // thirteen.
+    private static final double MUZZLE_SPEED = -0.08;
     private static final double SETTLE = 0.8;
 
     protected JetpackSmokeParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed,
