@@ -10,3 +10,6 @@
 	+ Draw a backtank worn in a Curios or Accessories back slot on the player's back, the way Create draws one in the chest slot
 	+ Keep jetpack flight at the normal flying speed by not letting the player sprint while jetpack flying
 	+ Add a server config for the air cost per tick, fall damage immunity, and removing Invisibility while flying
+	+ Leave a short campfire smoke trail from the bottom of the backtank, with Create's steam hiss as a sound of its own
+	+ Add a client config to turn the smoke trail and hiss off, set the trail's lifetime and density, and set the hiss volume
+	+ Add a config screen built with Yet Another Config Lib, optional at runtime, covering the client config and, in singleplayer, the server config
