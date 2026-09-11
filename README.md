@@ -15,7 +15,14 @@
 
 Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
 
-The mod is in early development and has no gameplay yet. Version history is in [CHANGE_LOG.md](./CHANGE_LOG.md), and the text used on the mod pages is in [DESCRIPTION-MODRINTH.md](./DESCRIPTION-MODRINTH.md) and [DESCRIPTION-CURSEFORGE.md](./DESCRIPTION-CURSEFORGE.md).
+The mod is in early development. For now, Create's backtanks stand in for the jetpacks:
+
+* Wear a backtank in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and you can fly the way creative mode does, by double-tapping jump.
+* Flight draws air from the backtank and cuts out when it runs dry.
+* Jetpack flight stays at the normal flying speed. Sprinting does not speed it up.
+* Fall damage still applies, and flying removes Invisibility. Both, along with the air cost, can be changed in the server config.
+
+Version history is in [CHANGE_LOG.md](./CHANGE_LOG.md), and the text used on the mod pages is in [DESCRIPTION-MODRINTH.md](./DESCRIPTION-MODRINTH.md) and [DESCRIPTION-CURSEFORGE.md](./DESCRIPTION-CURSEFORGE.md).
 
 ## Installation
 
@@ -28,6 +35,7 @@ Place the jar in the mods folder of your Minecraft instance, alongside NeoForge 
 * Minecraft 1.21.1
 * NeoForge 21.1.250 or newer
 * Create 6.0.10 or newer, below 6.1.0
+* Optional: Curios or Accessories, to wear the jetpack in a back slot
 
 ## Building
 
