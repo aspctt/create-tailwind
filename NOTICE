@@ -21,6 +21,14 @@ src/main/resources/assets/createtailwind, and the mod icon
 Reserved, except for anything listed under ASSETS below as coming from
 someone else.
 
+Modpacks, free or paid, may include Create: Tailwind by reference: the
+modpack carries a reference to the mod, the way a CurseForge manifest or a
+Modrinth .mrpack index entry does, and the player's launcher downloads the
+unmodified jar from an official distribution page operated or authorised by
+the copyright holder. That permission covers the assets as they come inside
+that jar. It does not extend to bundling, mirroring, re-hosting, or altering
+the jar.
+
 
 THIRD-PARTY COMPONENTS
 

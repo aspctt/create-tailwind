@@ -70,6 +70,8 @@ The Fabric target compiles only the `fabric` package, which holds its entry poin
 
 The code of Create: Tailwind is licensed under the [GNU General Public License v3.0 only](./LICENSE). The assets, meaning everything under `src/main/resources/assets/createtailwind` and the mod icon, are **All Rights Reserved** and are not covered by that licence.
 
+* Modpacks may include the mod **by reference**, the way a CurseForge manifest or a Modrinth index does, so the launcher fetches it from an official page. Re-hosting, bundling, or altering the jar is not permitted.
+
 Please note the copyrights and trademarks in [NOTICE](./NOTICE), which also credits third-party code and will list any third-party models and textures along with the permission they are used under.
 
 ## Credits
