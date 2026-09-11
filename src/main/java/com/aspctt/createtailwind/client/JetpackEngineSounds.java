@@ -2,6 +2,7 @@ package com.aspctt.createtailwind.client;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -11,27 +12,35 @@ import com.aspctt.createtailwind.TailwindClientConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
+import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 
-// The jetpack engine: two looping layers that follow each flying player, started and stopped by what the server
-// says about who is jetpack flying. Cogs carry the mechanical rumble, and the beacon hum, pitched well down, sits
-// under it as the drone of the air. Both climb in pitch, and a little in volume, as the player speeds up, and
-// fade in on takeoff and out on landing rather than cutting.
+// The jetpack engine, started and stopped by what the server says about who is jetpack flying. Three looping
+// layers follow each flying player: the rush of the exhaust, which does most of the work of sounding like a
+// jetpack, with Create's cogwheel rumble and a low beacon drone behind it for the machinery. On top of those the
+// tank vents a steam hiss on takeoff and then about once a second. The loops climb in pitch as the player speeds
+// up, the rush most of all, and fade in on takeoff and out on landing rather than cutting.
 public final class JetpackEngineSounds {
-    private static final float RUMBLE_VOLUME = 0.8F;
-    private static final float RUMBLE_PITCH = 0.9F;
-    private static final float RUMBLE_PITCH_GAIN = 0.4F;
+    // Each loop: volume at rest, how much of that volume waits for speed, pitch at rest, and pitch gained at
+    // full speed.
+    private static final LayerSettings RUSH = new LayerSettings(0.5F, 0.6F, 1.2F, 0.4F);
+    private static final LayerSettings RUMBLE = new LayerSettings(0.45F, 0.25F, 0.9F, 0.4F);
+    private static final LayerSettings HUM = new LayerSettings(0.3F, 0.25F, 0.6F, 0.25F);
 
-    private static final float HUM_VOLUME = 0.4F;
-    private static final float HUM_PITCH = 0.6F;
-    private static final float HUM_PITCH_GAIN = 0.25F;
+    // The hiss: the old exhaust sound's pitch, jittered a little, at irregular gaps of about a second.
+    private static final float HISS_VOLUME = 0.7F;
+    private static final float HISS_PITCH = 0.5F;
+    private static final float HISS_PITCH_JITTER = 0.05F;
+    private static final int HISS_MIN_TICKS = 16;
+    private static final int HISS_MAX_TICKS = 24;
 
     // Blocks per tick at which the engine is working hardest: about the top speed of jetpack flight, which
     // cannot sprint.
@@ -53,11 +62,14 @@ public final class JetpackEngineSounds {
     }
 
     // Starts engines that should be running but are not: a player whose flight was announced before their entity
-    // reached this client, or every flying player once the sound is switched back on.
+    // reached this client, or every flying player once the sound is switched back on. Then vents the hisses due.
     public static void onClientTick(ClientTickEvent.Post event) {
         PLAYING.values().removeIf(Engine::isStopped);
         for (int entityId : FLYING) {
             start(entityId);
+        }
+        for (Engine engine : PLAYING.values()) {
+            engine.tick();
         }
     }
 
@@ -80,37 +92,76 @@ public final class JetpackEngineSounds {
         if (level == null || !(level.getEntity(entityId) instanceof Player player)) {
             return;
         }
-        Engine engine = new Engine(
-                new Layer(player, ModSounds.JETPACK_ENGINE.get(), RUMBLE_VOLUME, RUMBLE_PITCH, RUMBLE_PITCH_GAIN),
-                new Layer(player, ModSounds.JETPACK_HUM.get(), HUM_VOLUME, HUM_PITCH, HUM_PITCH_GAIN));
+        Engine engine = new Engine(player);
         PLAYING.put(entityId, engine);
-        Minecraft.getInstance().getSoundManager().play(engine.rumble());
-        Minecraft.getInstance().getSoundManager().play(engine.hum());
+        engine.play();
     }
 
-    private record Engine(Layer rumble, Layer hum) {
+    private static boolean isRunning(Entity entity) {
+        return !entity.isRemoved() && FLYING.contains(entity.getId()) && TailwindClientConfig.EXHAUST_SOUND.get();
+    }
+
+    private static float configuredVolume() {
+        return TailwindClientConfig.EXHAUST_VOLUME.get() / 100.0F;
+    }
+
+    private record LayerSettings(float volume, float volumeFromSpeed, float pitch, float pitchFromSpeed) {
+    }
+
+    private static final class Engine {
+        private final Player player;
+        private final List<Layer> layers;
+        // Zero, so the first tick vents the takeoff hiss.
+        private int ticksToHiss;
+
+        Engine(Player player) {
+            this.player = player;
+            this.layers = List.of(
+                    new Layer(player, ModSounds.JETPACK_RUSH.get(), RUSH),
+                    new Layer(player, ModSounds.JETPACK_ENGINE.get(), RUMBLE),
+                    new Layer(player, ModSounds.JETPACK_HUM.get(), HUM));
+        }
+
+        void play() {
+            for (Layer layer : layers) {
+                Minecraft.getInstance().getSoundManager().play(layer);
+            }
+        }
+
         boolean isStopped() {
-            return rumble.isStopped() && hum.isStopped();
+            return layers.stream().allMatch(Layer::isStopped);
+        }
+
+        void tick() {
+            if (!isRunning(player) || --ticksToHiss > 0) {
+                return;
+            }
+            RandomSource random = player.getRandom();
+            ticksToHiss = HISS_MIN_TICKS + random.nextInt(HISS_MAX_TICKS - HISS_MIN_TICKS + 1);
+            float volume = HISS_VOLUME * configuredVolume();
+            if (volume <= 0.0F) {
+                return;
+            }
+            float pitch = HISS_PITCH + (random.nextFloat() * 2.0F - 1.0F) * HISS_PITCH_JITTER;
+            Minecraft.getInstance().getSoundManager().play(new SimpleSoundInstance(ModSounds.JETPACK_HISS.get(),
+                    SoundSource.PLAYERS, volume, pitch, random, player.getX(), player.getY() + player.getBbHeight() / 2.0,
+                    player.getZ()));
         }
     }
 
     private static final class Layer extends AbstractTickableSoundInstance {
         private final Entity entity;
-        private final float baseVolume;
-        private final float basePitch;
-        private final float pitchGain;
+        private final LayerSettings settings;
         private float fade;
 
-        Layer(Entity entity, SoundEvent event, float baseVolume, float basePitch, float pitchGain) {
+        Layer(Entity entity, SoundEvent event, LayerSettings settings) {
             super(event, SoundSource.PLAYERS, SoundInstance.createUnseededRandom());
             this.entity = entity;
-            this.baseVolume = baseVolume;
-            this.basePitch = basePitch;
-            this.pitchGain = pitchGain;
+            this.settings = settings;
             this.looping = true;
             this.delay = 0;
             this.volume = 0.0F;
-            this.pitch = basePitch;
+            this.pitch = settings.pitch();
             follow();
         }
 
@@ -126,8 +177,7 @@ public final class JetpackEngineSounds {
                 stop();
                 return;
             }
-            boolean running = FLYING.contains(entity.getId()) && TailwindClientConfig.EXHAUST_SOUND.get();
-            fade = running ? Math.min(1.0F, fade + FADE_STEP) : fade - FADE_STEP;
+            fade = isRunning(entity) ? Math.min(1.0F, fade + FADE_STEP) : fade - FADE_STEP;
             if (fade <= 0.0F) {
                 stop();
                 return;
@@ -135,9 +185,9 @@ public final class JetpackEngineSounds {
 
             double speed = Math.sqrt(entity.distanceToSqr(entity.xo, entity.yo, entity.zo));
             float effort = (float) Mth.clamp(speed / FULL_SPEED, 0.0, 1.0);
-            float configured = TailwindClientConfig.EXHAUST_VOLUME.get() / 100.0F;
-            volume = baseVolume * fade * (0.75F + 0.25F * effort) * configured;
-            pitch = basePitch + pitchGain * effort;
+            float fromSpeed = settings.volumeFromSpeed();
+            volume = settings.volume() * fade * (1.0F - fromSpeed + fromSpeed * effort) * configuredVolume();
+            pitch = settings.pitch() + settings.pitchFromSpeed() * effort;
             follow();
         }
 

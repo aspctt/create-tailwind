@@ -14,5 +14,22 @@
         "attenuation_distance": 16
       }
     ]
+  },
+  "jetpack.rush": {
+    "sounds": [
+      {
+        "name": "minecraft:item/elytra/elytra_loop",
+        "volume": 0.6
+      }
+    ]
+  },
+  "jetpack.hiss": {
+    "sounds": [
+      {
+        "name": "create:steam",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "createtailwind.subtitle.jetpack_hiss"
   }
 }
