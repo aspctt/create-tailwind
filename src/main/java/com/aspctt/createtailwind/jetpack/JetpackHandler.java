@@ -34,12 +34,13 @@ public final class JetpackHandler {
     private static final AttributeModifier FLIGHT =
             new AttributeModifier(Jetpacks.FLIGHT_MODIFIER_ID, 1.0, AttributeModifier.Operation.ADD_VALUE);
 
-    // Where the exhaust leaves the tank: the centre of its bottom cap, as Create's layer draws the backtank on the
-    // body. In model pixels, the cap sits 10 below the body's pivot and 8 behind it. PlayerRenderer draws the
-    // model at 15/16 scale and LivingEntityRenderer lifts it by 1.501, both before the player's own scale.
+    // Where the exhaust leaves the jetpack: the mouths of its two nozzles, as the jetpack is drawn on the body. In
+    // model pixels, the nozzles end 10 below the body's pivot, 7 behind it and 4 to either side. PlayerRenderer
+    // draws the model at 15/16 scale and LivingEntityRenderer lifts it by 1.501, both before the player's own scale.
     private static final double PLAYER_MODEL_SCALE = 0.9375;
     private static final double NOZZLE_HEIGHT = PLAYER_MODEL_SCALE * (1.501 - 10 / 16.0);
-    private static final double NOZZLE_BEHIND = PLAYER_MODEL_SCALE * 8 / 16.0;
+    private static final double NOZZLE_BEHIND = PLAYER_MODEL_SCALE * 7 / 16.0;
+    private static final double NOZZLE_SIDE = PLAYER_MODEL_SCALE * 4 / 16.0;
 
     // Players whose clients, and the clients tracking them, were last told they are jetpack flying. Server thread
     // only. A player is dropped from it whenever their own client starts over, so the next tick announces again.
@@ -154,16 +155,23 @@ public final class JetpackHandler {
         if (!(player.level() instanceof ServerLevel level)) {
             return;
         }
-        // The tank turns with the body rather than the head, so the nozzle follows the body's yaw.
+        // The jetpack turns with the body rather than the head, so the nozzles follow the body's yaw. Behind the
+        // body is (sin, -cos) of that yaw, and across it is (cos, sin).
         double scale = player.getScale();
         double yaw = Math.toRadians(player.yBodyRot);
-        double x = player.getX() + Math.sin(yaw) * NOZZLE_BEHIND * scale;
+        double sin = Math.sin(yaw);
+        double cos = Math.cos(yaw);
+        double x = player.getX() + sin * NOZZLE_BEHIND * scale;
         double y = player.getY() + NOZZLE_HEIGHT * scale;
-        double z = player.getZ() - Math.cos(yaw) * NOZZLE_BEHIND * scale;
+        double z = player.getZ() - cos * NOZZLE_BEHIND * scale;
+        double side = NOZZLE_SIDE * scale;
         // Campfire signal smoke, the particle Do a Barrel Roll uses for its thrust trail, cut down to a second.
         // Spawned in place with no spread or speed, so it hangs where the player was and draws the flight path.
-        // Each client applies its own particle settings when it receives them.
-        level.sendParticles(ModParticles.JETPACK_SMOKE.get(), x, y, z, 1, 0, 0, 0, 0);
+        // One puff per nozzle. Each client applies its own particle settings when it receives them.
+        for (int direction = -1; direction <= 1; direction += 2) {
+            level.sendParticles(ModParticles.JETPACK_SMOKE.get(), x + cos * side * direction, y,
+                    z + sin * side * direction, 1, 0, 0, 0, 0);
+        }
     }
 
     private JetpackHandler() {

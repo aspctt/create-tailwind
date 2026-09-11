@@ -1,8 +1,8 @@
 package com.aspctt.createtailwind.client.compat;
 
-import com.aspctt.createtailwind.client.WornBacktankRenderer;
+import com.aspctt.createtailwind.ModItems;
+import com.aspctt.createtailwind.client.WornJetpackRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.simibubi.create.AllItems;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HumanoidModel;
@@ -16,16 +16,15 @@ import top.theillusivec4.curios.api.client.ICurioRenderer;
 
 // Only loaded when Curios is, so nothing outside this class may reference the Curios API.
 public final class CuriosRenderers {
-    private static final ICurioRenderer BACKTANK = new BacktankCurioRenderer();
+    private static final ICurioRenderer JETPACK = new JetpackCurioRenderer();
 
     public static void register() {
-        CuriosRendererRegistry.register(AllItems.COPPER_BACKTANK.get(), () -> BACKTANK);
-        CuriosRendererRegistry.register(AllItems.NETHERITE_BACKTANK.get(), () -> BACKTANK);
+        CuriosRendererRegistry.register(ModItems.JETPACK.get(), () -> JETPACK);
     }
 
-    // Curios has no counterpart to Accessories' transform API, so the tank follows the rendered body's pivot
-    // exactly as Create's chest-slot layer does.
-    private static final class BacktankCurioRenderer implements ICurioRenderer {
+    // Curios has no counterpart to Accessories' transform API, so the jetpack follows the rendered body's pivot
+    // exactly as the chest-slot layer does.
+    private static final class JetpackCurioRenderer implements ICurioRenderer {
         @Override
         public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext slotContext,
                 PoseStack ms, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource buffer, int light,
@@ -36,8 +35,8 @@ public final class CuriosRenderers {
             }
             ms.pushPose();
             model.body.translateAndRotate(ms);
-            ms.translate(WornBacktankRenderer.OFFSET_X, WornBacktankRenderer.OFFSET_Y, WornBacktankRenderer.OFFSET_Z);
-            WornBacktankRenderer.render(ms, buffer, light, slotContext.entity(), stack);
+            ms.translate(WornJetpackRenderer.OFFSET_X, WornJetpackRenderer.OFFSET_Y, WornJetpackRenderer.OFFSET_Z);
+            WornJetpackRenderer.render(ms, buffer, light, slotContext.entity(), stack);
             ms.popPose();
         }
     }

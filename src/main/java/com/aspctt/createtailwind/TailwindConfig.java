@@ -16,7 +16,7 @@ public final class TailwindConfig {
         builder.push("jetpack");
 
         AIR_CONSUMPTION_PER_TICK = builder
-                .comment("Average air drawn from the backtank per tick of jetpack flight. Fractions are drawn as a chance each tick.")
+                .comment("Average air drawn from the jetpack per tick of flight. Fractions are drawn as a chance each tick.")
                 .defineInRange("airConsumptionPerTick", 0.3, 0.0, 1000.0);
 
         IMMUNE_TO_FALL_DAMAGE = builder

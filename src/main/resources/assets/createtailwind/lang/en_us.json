@@ -1,4 +1,6 @@
 {
+  "block.createtailwind.jetpack": "Jetpack",
+
   "createtailwind.subtitle.jetpack_engine": "Jetpack whirs",
   "createtailwind.subtitle.jetpack_hiss": "Jetpack hisses",
 
@@ -22,7 +24,7 @@
 
   "config.createtailwind.jetpack": "Jetpack",
   "config.createtailwind.jetpack.air_consumption": "Air Consumption per Tick",
-  "config.createtailwind.jetpack.air_consumption.description": "Average air drawn from the backtank for every tick of flight. Fractions are drawn as a chance each tick.",
+  "config.createtailwind.jetpack.air_consumption.description": "Average air drawn from the jetpack for every tick of flight. Fractions are drawn as a chance each tick.",
   "config.createtailwind.jetpack.immune_to_fall_damage": "Immune to Fall Damage",
   "config.createtailwind.jetpack.immune_to_fall_damage.description": "Whether a worn jetpack protects from fall damage, the way creative flight does.",
   "config.createtailwind.jetpack.remove_invisibility": "Remove Invisibility",

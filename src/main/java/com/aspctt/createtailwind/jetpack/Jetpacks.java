@@ -5,7 +5,6 @@ import java.util.function.Predicate;
 import com.aspctt.createtailwind.CreateTailwind;
 import com.aspctt.createtailwind.compat.AccessoriesCompat;
 import com.aspctt.createtailwind.compat.CuriosCompat;
-import com.simibubi.create.content.equipment.armor.BacktankItem;
 import com.simibubi.create.content.equipment.armor.BacktankUtil;
 
 import net.minecraft.resources.ResourceLocation;
@@ -26,9 +25,8 @@ public final class Jetpacks {
     private static final boolean CURIOS = ModList.get().isLoaded("curios");
     private static final boolean ACCESSORIES = ModList.get().isLoaded("accessories");
 
-    // A backtank doubles as a jetpack until the mod has jetpacks of its own.
     public static boolean isJetpack(ItemStack stack) {
-        return stack.getItem() instanceof BacktankItem;
+        return stack.getItem() instanceof JetpackItem;
     }
 
     // The jetpack the entity is wearing, preferring one with air left when it wears several. Empty when it wears none.

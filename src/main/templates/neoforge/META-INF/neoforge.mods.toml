@@ -29,7 +29,7 @@ versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
-# The jetpacks and boosters run on compressed air from Create's backtanks.
+# The jetpacks and boosters run on Create's compressed air, and charge the way its backtanks do.
 [[dependencies.${mod_id}]]
 modId = "create"
 type = "required"

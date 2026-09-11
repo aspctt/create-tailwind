@@ -1,7 +1,10 @@
 package com.aspctt.createtailwind;
 
 import com.aspctt.createtailwind.client.JetpackEngineSounds;
+import com.aspctt.createtailwind.client.JetpackLayer;
+import com.aspctt.createtailwind.client.JetpackRenderer;
 import com.aspctt.createtailwind.client.JetpackSmokeParticle;
+import com.aspctt.createtailwind.client.ModPartialModels;
 import com.aspctt.createtailwind.client.compat.AccessoriesRenderers;
 import com.aspctt.createtailwind.client.compat.CuriosRenderers;
 import com.aspctt.createtailwind.client.config.TailwindConfigScreen;
@@ -13,6 +16,7 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.NeoForge;
@@ -27,8 +31,12 @@ public class CreateTailwindClient {
         modContainer.registerExtensionPoint(IConfigScreenFactory.class,
                 (container, parent) -> TailwindConfigScreen.create(parent));
 
+        ModPartialModels.init();
+
         modEventBus.addListener(CreateTailwindClient::onClientSetup);
         modEventBus.addListener(CreateTailwindClient::onRegisterParticleProviders);
+        modEventBus.addListener(CreateTailwindClient::onRegisterRenderers);
+        modEventBus.addListener(CreateTailwindClient::onAddLayers);
         NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onClientTick);
         NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onLevelChange);
         NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onLoggingOut);
@@ -36,6 +44,14 @@ public class CreateTailwindClient {
 
     private static void onRegisterParticleProviders(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ModParticles.JETPACK_SMOKE.get(), JetpackSmokeParticle.Provider::new);
+    }
+
+    private static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntityTypes.JETPACK.get(), JetpackRenderer::new);
+    }
+
+    private static void onAddLayers(EntityRenderersEvent.AddLayers event) {
+        JetpackLayer.addToAll(event);
     }
 
     // Client setup runs in parallel with other mods', and neither registry is documented as thread-safe, so the
