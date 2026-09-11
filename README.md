@@ -21,9 +21,9 @@ The mod is in early development. For now, Create's backtanks stand in for the je
 * A backtank in a Curios or Accessories back slot shows on your back just like one in the chest slot. With Accessories it follows the body as it is actually rendered, so reshaped player models such as Fresh Animations keep it in place.
 * Flight draws air from the backtank and cuts out when it runs dry.
 * Jetpack flight stays at the normal flying speed. Sprinting does not speed it up.
-* The exhaust leaves a short smoke trail from the bottom of the tank, with a steam hiss.
+* The exhaust leaves a short smoke trail from the bottom of the tank, and the engine whirs while you fly: Create's cogwheel rumble over a low beacon hum, rising in pitch as you speed up.
 * Fall damage still applies, and flying removes Invisibility. Both, along with the air cost, can be changed in the server config.
-* The config screen, opened from the mod list, needs [YACL](https://modrinth.com/mod/yacl). It lets each player turn the smoke trail and hiss off, shorten or thin out the trail, and set the hiss volume, and in singleplayer it also edits the server settings. Without YACL the mod still works, and the config files can be edited by hand.
+* The config screen, opened from the mod list, needs [YACL](https://modrinth.com/mod/yacl). It lets each player turn the smoke trail and engine sound off, shorten or thin out the trail, and set the engine volume, and in singleplayer it also edits the server settings. Without YACL the mod still works, and the config files can be edited by hand.
 
 Version history is in [CHANGE_LOG.md](./CHANGE_LOG.md), and the text used on the mod pages is in [DESCRIPTION-MODRINTH.md](./DESCRIPTION-MODRINTH.md) and [DESCRIPTION-CURSEFORGE.md](./DESCRIPTION-CURSEFORGE.md).
 
