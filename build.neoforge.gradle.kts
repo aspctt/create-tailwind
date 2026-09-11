@@ -19,8 +19,12 @@ repositories {
     maven("https://maven.ithundxr.dev/snapshots") { name = "ithundxr" }
     // Curios.
     maven("https://maven.theillusivec4.top/") { name = "TheIllusiveC4" }
-    // Accessories.
+    // Accessories, owo-lib and endec.
     maven("https://maven.wispforest.io/releases/") { name = "Wisp Forest" }
+    // Forgified Fabric API, which owo-lib and Accessories build on for NeoForge.
+    maven("https://maven.su5ed.dev/releases") { name = "Sinytra" }
+    // Jankson, a dependency of owo-lib.
+    mavenCentral()
     // Yet Another Config Lib. Its own maven rather than Modrinth's, because Modrinth resolves a version
     // to its primary file and YACL publishes the Fabric and NeoForge builds under one version, so the
     // coordinate can hand back the wrong loader's jar.
@@ -101,12 +105,15 @@ dependencies {
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${prop("minecraft_version")}:${prop("flywheel_version")}")
     implementation("com.tterrag.registrate:Registrate:${prop("registrate_version")}")
 
-    // Curios and Accessories are both optional. Compile against each, and load Curios in the development run.
+    // Curios and Accessories are both optional. Compile against each, and load both in the development runs.
+    // Accessories brings owo-lib and Forgified Fabric API's base module with it at runtime; only its own classes
+    // are needed to compile.
     compileOnly("top.theillusivec4.curios:curios-neoforge:${prop("curios_version")}:api")
     localRuntime("top.theillusivec4.curios:curios-neoforge:${prop("curios_version")}")
     compileOnly("io.wispforest:accessories-neoforge:${prop("accessories_version")}") {
         isTransitive = false
     }
+    localRuntime("io.wispforest:accessories-neoforge:${prop("accessories_version")}")
 
     // The config screen is the only thing that touches YACL, and every entry point into it is guarded by
     // Compat.isYACLLoaded(), so the mod runs correctly with YACL absent. compileOnly keeps it out of the
