@@ -35,8 +35,9 @@ public final class JetpackEngineSounds {
     private static final LayerSettings RUMBLE = new LayerSettings(0.45F, 0.25F, 0.9F, 0.4F);
     private static final LayerSettings HUM = new LayerSettings(0.3F, 0.25F, 0.6F, 0.25F);
 
-    // The hiss: the old exhaust sound's pitch, jittered a little, at irregular gaps of about a second.
-    private static final float HISS_VOLUME = 0.7F;
+    // The hiss: the old exhaust sound's pitch, jittered a little, at irregular gaps of about a second. Kept faint,
+    // since Create's steam recording is loud enough to bury the loops underneath it.
+    private static final float HISS_VOLUME = 0.15F;
     private static final float HISS_PITCH = 0.5F;
     private static final float HISS_PITCH_JITTER = 0.05F;
     private static final int HISS_MIN_TICKS = 16;
