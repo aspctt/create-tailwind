@@ -35,11 +35,12 @@ public final class JetpackHandler {
             new AttributeModifier(Jetpacks.FLIGHT_MODIFIER_ID, 1.0, AttributeModifier.Operation.ADD_VALUE);
 
     // Where the exhaust leaves the jetpack: the mouths of its two nozzles, as the jetpack is drawn on the body. In
-    // model pixels, the nozzles end 10 below the body's pivot, 7 behind it and 4 to either side. PlayerRenderer
-    // draws the model at 15/16 scale and LivingEntityRenderer lifts it by 1.501, both before the player's own scale.
+    // model pixels, the nozzles end 10 below the body's pivot, 2.5 behind the front of the tanks, which rests on the
+    // back, and 4 to either side. PlayerRenderer draws the model at 15/16 scale and LivingEntityRenderer lifts it
+    // by 1.501, both before the player's own scale.
     private static final double PLAYER_MODEL_SCALE = 0.9375;
     private static final double NOZZLE_HEIGHT = PLAYER_MODEL_SCALE * (1.501 - 10 / 16.0);
-    private static final double NOZZLE_BEHIND = PLAYER_MODEL_SCALE * 7 / 16.0;
+    private static final double NOZZLE_BEHIND_FRONT = 2.5;
     private static final double NOZZLE_SIDE = PLAYER_MODEL_SCALE * 4 / 16.0;
 
     // Players whose clients, and the clients tracking them, were last told they are jetpack flying. Server thread
@@ -161,9 +162,10 @@ public final class JetpackHandler {
         double yaw = Math.toRadians(player.yBodyRot);
         double sin = Math.sin(yaw);
         double cos = Math.cos(yaw);
-        double x = player.getX() + sin * NOZZLE_BEHIND * scale;
+        double behind = PLAYER_MODEL_SCALE * (Jetpacks.backDepth(player) + NOZZLE_BEHIND_FRONT) / 16.0 * scale;
+        double x = player.getX() + sin * behind;
         double y = player.getY() + NOZZLE_HEIGHT * scale;
-        double z = player.getZ() - cos * NOZZLE_BEHIND * scale;
+        double z = player.getZ() - cos * behind;
         double side = NOZZLE_SIDE * scale;
         // Campfire signal smoke, the particle Do a Barrel Roll uses for its thrust trail, cut down to a second.
         // Spawned in place with no spread or speed, so it hangs where the player was and draws the flight path.

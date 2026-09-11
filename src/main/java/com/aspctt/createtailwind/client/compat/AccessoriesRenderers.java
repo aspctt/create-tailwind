@@ -43,7 +43,7 @@ public final class AccessoriesRenderers {
             ms.mulPose(Axis.XP.rotationDegrees(180));
             ms.scale(2, 2, 2);
             ms.translate(WornJetpackRenderer.OFFSET_X, WornJetpackRenderer.OFFSET_Y,
-                    WornJetpackRenderer.OFFSET_Z - VANILLA_BACK_DEPTH);
+                    WornJetpackRenderer.offsetZ(reference.entity()) - VANILLA_BACK_DEPTH);
             WornJetpackRenderer.render(ms, buffer, light, reference.entity(), stack);
         }
     }

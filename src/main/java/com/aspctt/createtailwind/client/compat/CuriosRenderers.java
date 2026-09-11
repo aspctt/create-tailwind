@@ -35,7 +35,8 @@ public final class CuriosRenderers {
             }
             ms.pushPose();
             model.body.translateAndRotate(ms);
-            ms.translate(WornJetpackRenderer.OFFSET_X, WornJetpackRenderer.OFFSET_Y, WornJetpackRenderer.OFFSET_Z);
+            ms.translate(WornJetpackRenderer.OFFSET_X, WornJetpackRenderer.OFFSET_Y,
+                    WornJetpackRenderer.offsetZ(slotContext.entity()));
             WornJetpackRenderer.render(ms, buffer, light, slotContext.entity(), stack);
             ms.popPose();
         }

@@ -12,6 +12,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.NeoForgeMod;
@@ -27,6 +28,12 @@ public final class Jetpacks {
 
     public static boolean isJetpack(ItemStack stack) {
         return stack.getItem() instanceof JetpackItem;
+    }
+
+    // How far behind the body's pivot a worn jetpack rests, in model pixels. It sits on the back, or on the
+    // chestplate when one is worn under a jetpack in a back slot, which vanilla draws a pixel out from the body.
+    public static int backDepth(LivingEntity entity) {
+        return entity.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof ArmorItem ? 3 : 2;
     }
 
     // The jetpack the entity is wearing, preferring one with air left when it wears several. Empty when it wears none.
