@@ -21,6 +21,12 @@ repositories {
     maven("https://maven.theillusivec4.top/") { name = "TheIllusiveC4" }
     // Accessories.
     maven("https://maven.wispforest.io/releases/") { name = "Wisp Forest" }
+    // Yet Another Config Lib. Its own maven rather than Modrinth's, because Modrinth resolves a version
+    // to its primary file and YACL publishes the Fabric and NeoForge builds under one version, so the
+    // coordinate can hand back the wrong loader's jar.
+    maven("https://maven.isxander.dev/releases") { name = "Xander Maven" }
+    // Transitive dependencies of YACL.
+    maven("https://maven.terraformersmc.com/releases") { name = "Terraformers" }
 }
 
 neoForge {
@@ -75,6 +81,12 @@ sourceSets.main.get().resources.srcDir(rootProject.file("src/generated/resources
 // so it can simply be left out.
 sourceSets.main.get().java.exclude("**/fabric/**")
 
+// Sets up a dependency configuration called "localRuntime". Use it instead of "runtimeOnly" for a
+// dependency that should be present when the development client launches but must not be pulled in by
+// anyone depending on this mod.
+val localRuntime = configurations.create("localRuntime")
+configurations.runtimeClasspath.get().extendsFrom(localRuntime)
+
 dependencies {
     // JEI: compile against the API only, and load the full mod in the development run.
     compileOnly("mezz.jei:jei-${prop("minecraft_version")}-neoforge-api:${prop("jei_version")}")
@@ -91,10 +103,16 @@ dependencies {
 
     // Curios and Accessories are both optional. Compile against each, and load Curios in the development run.
     compileOnly("top.theillusivec4.curios:curios-neoforge:${prop("curios_version")}:api")
-    runtimeOnly("top.theillusivec4.curios:curios-neoforge:${prop("curios_version")}")
+    localRuntime("top.theillusivec4.curios:curios-neoforge:${prop("curios_version")}")
     compileOnly("io.wispforest:accessories-neoforge:${prop("accessories_version")}") {
         isTransitive = false
     }
+
+    // The config screen is the only thing that touches YACL, and every entry point into it is guarded by
+    // Compat.isYACLLoaded(), so the mod runs correctly with YACL absent. compileOnly keeps it out of the
+    // published dependency set; localRuntime installs it for development launches.
+    compileOnly("dev.isxander:yet-another-config-lib:${prop("yacl_version")}")
+    localRuntime("dev.isxander:yet-another-config-lib:${prop("yacl_version")}")
 }
 
 // Expand the declared properties into the mod metadata template. The shared keys come from
@@ -107,6 +125,7 @@ val generateModMetadata = tasks.register<ProcessResources>("generateModMetadata"
         "neo_version" to prop("neo_version"),
         "neo_version_range" to prop("neo_version_range"),
         "create_version_range" to prop("create_version_range"),
+        "yacl_min_version" to prop("yacl_min_version"),
     )
     inputs.properties(replaceProperties)
     expand(replaceProperties)

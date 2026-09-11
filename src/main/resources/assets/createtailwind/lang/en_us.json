@@ -1,6 +1,38 @@
 {
-  "createtailwind.configuration.jetpack": "Jetpack",
-  "createtailwind.configuration.airConsumptionPerTick": "Air Consumption per Tick",
-  "createtailwind.configuration.immuneToFallDamage": "Immune to Fall Damage",
-  "createtailwind.configuration.removeInvisibility": "Remove Invisibility"
+  "createtailwind.subtitle.jetpack_exhaust": "Jetpack hisses",
+
+  "config.createtailwind.title": "Create: Tailwind",
+  "config.createtailwind.client": "Client",
+  "config.createtailwind.server": "Server",
+
+  "config.createtailwind.particles": "Exhaust Particles",
+  "config.createtailwind.particles.enabled": "Show Particles",
+  "config.createtailwind.particles.enabled.description": "Whether jetpacks leave a smoke trail behind them.",
+  "config.createtailwind.particles.lifetime": "Particle Lifetime",
+  "config.createtailwind.particles.lifetime.description": "How long each puff of smoke lasts at most. Each one lives between three quarters of this and all of it, so the trail frays unevenly.",
+  "config.createtailwind.particles.density": "Particle Density",
+  "config.createtailwind.particles.density.description": "How many of the smoke puffs to show. Lower it to thin the trail out.",
+
+  "config.createtailwind.sound": "Exhaust Sound",
+  "config.createtailwind.sound.enabled": "Play Sound",
+  "config.createtailwind.sound.enabled.description": "Whether jetpacks hiss while flying.",
+  "config.createtailwind.sound.volume": "Volume",
+  "config.createtailwind.sound.volume.description": "How loud the jetpack hiss is. Applied on top of the Players volume slider.",
+
+  "config.createtailwind.jetpack": "Jetpack",
+  "config.createtailwind.jetpack.air_consumption": "Air Consumption per Tick",
+  "config.createtailwind.jetpack.air_consumption.description": "Average air drawn from the backtank for every tick of flight. Fractions are drawn as a chance each tick.",
+  "config.createtailwind.jetpack.immune_to_fall_damage": "Immune to Fall Damage",
+  "config.createtailwind.jetpack.immune_to_fall_damage.description": "Whether a worn jetpack protects from fall damage, the way creative flight does.",
+  "config.createtailwind.jetpack.remove_invisibility": "Remove Invisibility",
+  "config.createtailwind.jetpack.remove_invisibility.description": "Whether flying with a jetpack removes Invisibility, since the exhaust gives the player away.",
+  "config.createtailwind.server.unavailable": "Server settings belong to the world. Change them here from a singleplayer world that is not open to LAN, or on a server in serverconfig/createtailwind-server.toml inside the world folder.",
+
+  "config.createtailwind.format.ticks": "%s ticks (%s s)",
+  "config.createtailwind.format.percent": "%s%%",
+
+  "config.createtailwind.yacl.missing": "Yet Another Config Lib is not installed",
+  "config.createtailwind.yacl.missing.message": "YACL 3 is required to edit the config in game, would you like to install YACL 3?",
+  "config.createtailwind.yacl.outdated": "Yet Another Config Lib is outdated",
+  "config.createtailwind.yacl.outdated.message": "The latest version of YACL 3 is required to edit the config in game, would you like to update YACL 3?"
 }

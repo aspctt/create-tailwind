@@ -21,6 +21,7 @@ public class CreateTailwind {
     public CreateTailwind(IEventBus modEventBus, ModContainer modContainer) {
         modContainer.registerConfig(ModConfig.Type.SERVER, TailwindConfig.SPEC);
         ModParticles.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         NeoForge.EVENT_BUS.addListener(JetpackHandler::onPlayerTick);
         NeoForge.EVENT_BUS.addListener(JetpackHandler::onPlayerFlyableFall);

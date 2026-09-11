@@ -1,5 +1,7 @@
 package com.aspctt.createtailwind.client;
 
+import com.aspctt.createtailwind.TailwindClientConfig;
+
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.CampfireSmokeParticle;
 import net.minecraft.client.particle.Particle;
@@ -7,17 +9,19 @@ import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.core.particles.SimpleParticleType;
 
-// Vanilla's campfire signal smoke, cut down to a second at most so a jetpack leaves a short trail rather than a
-// column that hangs in the air for fifteen seconds.
+// Vanilla's campfire signal smoke, cut down to a second or so, so a jetpack leaves a short trail rather than a
+// column that hangs in the air for fifteen seconds. How long it lasts, and whether it shows at all, is the
+// client's choice.
 public class JetpackSmokeParticle extends CampfireSmokeParticle {
     private static final float START_ALPHA = 0.95F;
-    private static final int MIN_LIFETIME = 15;
-    private static final int MAX_LIFETIME = 20;
 
     protected JetpackSmokeParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed,
             double zSpeed) {
         super(level, x, y, z, xSpeed, ySpeed, zSpeed, true);
-        this.lifetime = MIN_LIFETIME + this.random.nextInt(MAX_LIFETIME - MIN_LIFETIME + 1);
+        // Between three quarters of the configured lifetime and all of it, so the trail frays unevenly.
+        int maxLifetime = TailwindClientConfig.PARTICLE_LIFETIME.get();
+        int minLifetime = maxLifetime - maxLifetime / 4;
+        this.lifetime = minLifetime + this.random.nextInt(maxLifetime - minLifetime + 1);
         this.alpha = START_ALPHA;
     }
 
@@ -36,9 +40,14 @@ public class JetpackSmokeParticle extends CampfireSmokeParticle {
             this.sprites = sprites;
         }
 
+        // The server sends every puff, and the client drops the ones its settings leave out.
         @Override
         public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z,
                 double xSpeed, double ySpeed, double zSpeed) {
+            if (!TailwindClientConfig.EXHAUST_PARTICLES.get()
+                    || level.random.nextInt(100) >= TailwindClientConfig.PARTICLE_DENSITY.get()) {
+                return null;
+            }
             JetpackSmokeParticle particle = new JetpackSmokeParticle(level, x, y, z, xSpeed, ySpeed, zSpeed);
             particle.pickSprite(this.sprites);
             return particle;

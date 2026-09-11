@@ -1,8 +1,8 @@
 package com.aspctt.createtailwind.jetpack;
 
 import com.aspctt.createtailwind.ModParticles;
+import com.aspctt.createtailwind.ModSounds;
 import com.aspctt.createtailwind.TailwindConfig;
-import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.equipment.armor.BacktankUtil;
 
 import net.minecraft.server.level.ServerLevel;
@@ -116,9 +116,10 @@ public final class JetpackHandler {
         double z = player.getZ() - Math.cos(yaw) * NOZZLE_BEHIND * scale;
         // Campfire signal smoke, the particle Do a Barrel Roll uses for its thrust trail, cut down to a second.
         // Spawned in place with no spread or speed, so it hangs where the player was and draws the flight path.
+        // Each client applies its own particle settings when it receives them.
         level.sendParticles(ModParticles.JETPACK_SMOKE.get(), x, y, z, 1, 0, 0, 0, 0);
         if (player.tickCount % 10 == 0) {
-            level.playSound(null, x, y, z, AllSoundEvents.STEAM.getMainEvent(), SoundSource.PLAYERS, 1.0F, 0.5F);
+            level.playSound(null, x, y, z, ModSounds.JETPACK_EXHAUST.get(), SoundSource.PLAYERS, 1.0F, 0.5F);
         }
     }
 

@@ -1,0 +1,11 @@
+{
+  "jetpack.exhaust": {
+    "sounds": [
+      {
+        "name": "create:steam",
+        "type": "event"
+      }
+    ],
+    "subtitle": "createtailwind.subtitle.jetpack_exhaust"
+  }
+}

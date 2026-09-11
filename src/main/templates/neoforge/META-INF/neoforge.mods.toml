@@ -36,3 +36,13 @@ type = "required"
 versionRange = "${create_version_range}"
 ordering = "NONE"
 side = "BOTH"
+
+# The config screen is the only thing that uses YACL and every route into it is
+# guarded, so the mod runs without it. Without YACL the config button opens a
+# prompt offering to install it instead.
+[[dependencies.${mod_id}]]
+modId = "yet_another_config_lib_v3"
+type = "optional"
+versionRange = "[${yacl_min_version},)"
+ordering = "AFTER"
+side = "CLIENT"
