@@ -3,7 +3,7 @@
 <p style="text-align: center;">
 	<img src="https://img.shields.io/badge/Available_for-1.21.1-blue" alt="Version">
 	<img src="https://img.shields.io/badge/Requires-Create_6.0.x-blueviolet" alt="Requires">
-	<img src="https://img.shields.io/badge/License-Not_decided-lightgrey" alt="License">
+	<img src="https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-blue" alt="License">
 </p>
 
 <p style="text-align: center;">
@@ -19,4 +19,4 @@
 
 <h3>License</h3>
 
-<p>The licence for Create: Tailwind has not been decided yet. Until it is, the mod is All Rights Reserved.</p>
+<p>The code of Create: Tailwind is licensed under GPL-3.0-only. Its assets are All Rights Reserved.</p>

@@ -4,7 +4,7 @@
 
 ![Version](https://img.shields.io/badge/Available_for-1.21.1-blue)
 ![Requires](https://img.shields.io/badge/Requires-Create_6.0.x-blueviolet)
-![License](https://img.shields.io/badge/License-Not_decided-lightgrey)
+![License](https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-blue)
 
 ![NeoForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg)
 ![Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg)
@@ -64,9 +64,9 @@ The Fabric target compiles only the `fabric` package, which holds its entry poin
 
 ## Licensing
 
-The licence for Create: Tailwind has not been decided yet. Until it is, the project is **All Rights Reserved**, as stated in [LICENSE](./LICENSE).
+The code of Create: Tailwind is licensed under the [GNU General Public License v3.0 only](./LICENSE). The assets, meaning everything under `src/main/resources/assets/createtailwind` and the mod icon, are **All Rights Reserved** and are not covered by that licence.
 
-Please note the copyrights and trademarks in [NOTICE](./NOTICE), which will also list any third-party models and textures along with the permission they are used under.
+Please note the copyrights and trademarks in [NOTICE](./NOTICE), which also credits third-party code and will list any third-party models and textures along with the permission they are used under.
 
 ## Credits
 

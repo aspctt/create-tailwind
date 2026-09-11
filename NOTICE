@@ -10,6 +10,18 @@ Other trademarks and registered trademarks are the property of the respective
 trademark holders.
 
 
+LICENSING
+
+The code of Create: Tailwind is licensed under the GNU General Public License,
+version 3 only. The full terms are in LICENSE.
+
+The assets are not covered by that license. Everything under
+src/main/resources/assets/createtailwind, and the mod icon
+(src/main/resources/icon.png), is Copyright (c) 2026 ASPCT, All Rights
+Reserved, except for anything listed under ASSETS below as coming from
+someone else.
+
+
 THIRD-PARTY COMPONENTS
 
 Build tooling in this repository derives from the NeoForged Mod Development Kit
@@ -127,9 +139,9 @@ The jetpack flight handling is adapted from Create: Backtank is Jetpack
 ASSETS
 
 The jetpack's models and textures, and its flame and spark textures, are
-original to this project. Models or
-textures taken from other mods will be listed here with their source, author,
-and the license or permission they are used under.
+original to this project and All Rights Reserved, as set out under LICENSING
+above. Models or textures taken from other mods will be listed here with their
+source, author, and the license or permission they are used under.
 
 
 © 2026 ASPCT
