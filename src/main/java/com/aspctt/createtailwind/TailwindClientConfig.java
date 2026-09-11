@@ -31,11 +31,11 @@ public final class TailwindClientConfig {
                 .defineInRange("particleDensity", 100, 0, 100);
 
         EXHAUST_SOUND = builder
-                .comment("Whether jetpacks make a hissing sound while flying.")
+                .comment("Whether jetpacks make an engine sound while flying.")
                 .define("sound", true);
 
         EXHAUST_VOLUME = builder
-                .comment("Volume of the jetpack hiss, as a percentage.")
+                .comment("Volume of the jetpack engine, as a percentage.")
                 .defineInRange("soundVolume", 100, 0, 100);
 
         builder.pop();

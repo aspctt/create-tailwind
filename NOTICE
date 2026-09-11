@@ -93,9 +93,10 @@ The config screen is built with Yet Another Config Lib, licensed under the GNU
 Lesser General Public License v3.0 or later. It is optional at runtime, and is
 not bundled with or redistributed by this project.
 
-The jetpack exhaust plays Create's steam sound and draws vanilla Minecraft's
-campfire smoke sprites. Both are referenced by name and loaded from Create and
-Minecraft at runtime; neither is copied into this project.
+The jetpack engine plays Create's cogwheel sound and vanilla Minecraft's beacon
+hum, and its exhaust draws vanilla's campfire smoke sprites. All are
+referenced by name and loaded from Create and Minecraft at runtime; none is
+copied into this project.
 
 The jetpack flight handling is adapted from Create: Backtank is Jetpack
 (github.com/mchhui/Create-BacktankIsJetpack) and is used under the MIT License:

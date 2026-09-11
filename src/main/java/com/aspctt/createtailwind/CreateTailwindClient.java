@@ -1,6 +1,6 @@
 package com.aspctt.createtailwind;
 
-import com.aspctt.createtailwind.client.ExhaustSounds;
+import com.aspctt.createtailwind.client.JetpackEngineSounds;
 import com.aspctt.createtailwind.client.JetpackSmokeParticle;
 import com.aspctt.createtailwind.client.compat.AccessoriesRenderers;
 import com.aspctt.createtailwind.client.compat.CuriosRenderers;
@@ -29,7 +29,9 @@ public class CreateTailwindClient {
 
         modEventBus.addListener(CreateTailwindClient::onClientSetup);
         modEventBus.addListener(CreateTailwindClient::onRegisterParticleProviders);
-        NeoForge.EVENT_BUS.addListener(ExhaustSounds::onPlaySound);
+        NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onClientTick);
+        NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onLevelChange);
+        NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onLoggingOut);
     }
 
     private static void onRegisterParticleProviders(RegisterParticleProvidersEvent event) {

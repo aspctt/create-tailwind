@@ -1,11 +1,18 @@
 {
-  "jetpack.exhaust": {
+  "jetpack.engine": {
     "sounds": [
       {
-        "name": "create:steam",
-        "type": "event"
+        "name": "create:cogs"
       }
     ],
-    "subtitle": "createtailwind.subtitle.jetpack_exhaust"
+    "subtitle": "createtailwind.subtitle.jetpack_engine"
+  },
+  "jetpack.hum": {
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "attenuation_distance": 16
+      }
+    ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "createtailwind.subtitle.jetpack_exhaust": "Jetpack hisses",
+  "createtailwind.subtitle.jetpack_engine": "Jetpack whirs",
 
   "config.createtailwind.title": "Create: Tailwind",
   "config.createtailwind.client": "Client",
@@ -13,11 +13,11 @@
   "config.createtailwind.particles.density": "Particle Density",
   "config.createtailwind.particles.density.description": "How many of the smoke puffs to show. Lower it to thin the trail out.",
 
-  "config.createtailwind.sound": "Exhaust Sound",
+  "config.createtailwind.sound": "Engine Sound",
   "config.createtailwind.sound.enabled": "Play Sound",
-  "config.createtailwind.sound.enabled.description": "Whether jetpacks hiss while flying.",
+  "config.createtailwind.sound.enabled.description": "Whether jetpacks make an engine sound while flying.",
   "config.createtailwind.sound.volume": "Volume",
-  "config.createtailwind.sound.volume.description": "How loud the jetpack hiss is. Applied on top of the Players volume slider.",
+  "config.createtailwind.sound.volume.description": "How loud the jetpack engine is. Applied on top of the Players volume slider.",
 
   "config.createtailwind.jetpack": "Jetpack",
   "config.createtailwind.jetpack.air_consumption": "Air Consumption per Tick",

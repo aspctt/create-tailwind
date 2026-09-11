@@ -1,6 +1,7 @@
 package com.aspctt.createtailwind;
 
 import com.aspctt.createtailwind.jetpack.JetpackHandler;
+import com.aspctt.createtailwind.network.ModNetworking;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -23,7 +24,14 @@ public class CreateTailwind {
         ModParticles.register(modEventBus);
         ModSounds.register(modEventBus);
 
+        modEventBus.addListener(ModNetworking::register);
+
         NeoForge.EVENT_BUS.addListener(JetpackHandler::onPlayerTick);
         NeoForge.EVENT_BUS.addListener(JetpackHandler::onPlayerFlyableFall);
+        NeoForge.EVENT_BUS.addListener(JetpackHandler::onStartTracking);
+        NeoForge.EVENT_BUS.addListener(JetpackHandler::onLoggedOut);
+        NeoForge.EVENT_BUS.addListener(JetpackHandler::onChangedDimension);
+        NeoForge.EVENT_BUS.addListener(JetpackHandler::onRespawn);
+        NeoForge.EVENT_BUS.addListener(JetpackHandler::onServerStopped);
     }
 }
