@@ -20,7 +20,7 @@ public final class ModSounds {
     public static final Supplier<SoundEvent> JETPACK_HUM = register("jetpack.hum");
     // Vanilla's elytra wind loop, pitched up: the rush of the exhaust, which grows with speed.
     public static final Supplier<SoundEvent> JETPACK_RUSH = register("jetpack.rush");
-    // Create's steam hiss: the tank venting, in bursts on takeoff and about once a second in flight.
+    // Create's steam hiss: the tank venting, on takeoff and every few seconds in flight.
     public static final Supplier<SoundEvent> JETPACK_HISS = register("jetpack.hiss");
 
     private static Supplier<SoundEvent> register(String name) {

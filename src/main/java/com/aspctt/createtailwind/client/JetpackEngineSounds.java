@@ -26,22 +26,22 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 // The jetpack engine, started and stopped by what the server says about who is jetpack flying. Three looping
 // layers follow each flying player: the rush of the exhaust, which does most of the work of sounding like a
 // jetpack, with Create's cogwheel rumble and a low beacon drone behind it for the machinery. On top of those the
-// tank vents a steam hiss on takeoff and then about once a second. The loops climb in pitch as the player speeds
+// tank vents a faint steam hiss on takeoff and then every few seconds. The loops climb in pitch as the player speeds
 // up, the rush most of all, and fade in on takeoff and out on landing rather than cutting.
 public final class JetpackEngineSounds {
     // Each loop: volume at rest, how much of that volume waits for speed, pitch at rest, and pitch gained at
     // full speed.
-    private static final LayerSettings RUSH = new LayerSettings(0.5F, 0.6F, 1.2F, 0.4F);
+    private static final LayerSettings RUSH = new LayerSettings(0.25F, 0.6F, 1.2F, 0.4F);
     private static final LayerSettings RUMBLE = new LayerSettings(0.45F, 0.25F, 0.9F, 0.4F);
     private static final LayerSettings HUM = new LayerSettings(0.3F, 0.25F, 0.6F, 0.25F);
 
-    // The hiss: the old exhaust sound's pitch, jittered a little, at irregular gaps of about a second. Kept faint,
-    // since Create's steam recording is loud enough to bury the loops underneath it.
-    private static final float HISS_VOLUME = 0.15F;
+    // The hiss: the old exhaust sound's pitch, jittered a little, at irregular gaps of three to five seconds. Kept
+    // faint, since Create's steam recording is loud enough to bury the loops underneath it.
+    private static final float HISS_VOLUME = 0.05F;
     private static final float HISS_PITCH = 0.5F;
     private static final float HISS_PITCH_JITTER = 0.05F;
-    private static final int HISS_MIN_TICKS = 16;
-    private static final int HISS_MAX_TICKS = 24;
+    private static final int HISS_MIN_TICKS = 60;
+    private static final int HISS_MAX_TICKS = 100;
 
     // Blocks per tick at which the engine is working hardest: about the top speed of jetpack flight, which
     // cannot sprint.
