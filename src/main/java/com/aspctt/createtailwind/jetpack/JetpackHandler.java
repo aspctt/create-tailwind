@@ -148,8 +148,9 @@ public final class JetpackHandler {
             return;
         }
         // Campfire signal smoke, the particle Do a Barrel Roll uses for its thrust trail, cut down to a second.
-        // Spawned in place with no spread or speed, so it hangs where the player was and draws the flight path.
-        // One puff per nozzle. Each client applies its own particle settings when it receives them.
+        // Spawned in place without the player's speed, so it stays where the player was and draws the flight
+        // path. The particle gives itself its kick down out of the nozzle and its slow rise. One puff per nozzle.
+        // Each client applies its own particle settings when it receives them.
         JetpackNozzles.forEach(player, (x, y, z) ->
                 level.sendParticles(ModParticles.JETPACK_SMOKE.get(), x, y, z, 1, 0, 0, 0, 0));
     }

@@ -13,7 +13,7 @@
 	+ Warn "Jetpack pressure low" and "Jetpack pressure depleted" in place of Create's backtank wording when air drawn from a jetpack runs down
 	+ Keep jetpack flight at the normal flying speed by not letting the player sprint while jetpack flying
 	+ Add a server config for the air cost per tick, fall damage immunity, and removing Invisibility while flying
-	+ Leave a short campfire smoke trail from each of the jetpack's two nozzles
+	+ Leave a short campfire smoke trail from each of the jetpack's two nozzles: each puff shoots down out of the nozzle, then rises at half a campfire's speed
 	+ Give jetpack flight an engine sound that follows each flying player: a rush of air that grows with speed, Create's cogwheel rumble and a lowered beacon hum behind it, and a faint steam hiss from Create on takeoff and every few seconds, more often at speed, fading in and out on takeoff and landing
 	+ Show a flickering white jet of air under each nozzle of a flying jetpack, glowing in any light and lengthening with speed
 	+ Throw amber sparks from the nozzles of a flying jetpack, spawned by each client rather than sent by the server
