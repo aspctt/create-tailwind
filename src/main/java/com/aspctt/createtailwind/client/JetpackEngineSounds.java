@@ -64,7 +64,12 @@ public final class JetpackEngineSounds {
 
     // Starts engines that should be running but are not: a player whose flight was announced before their entity
     // reached this client, or every flying player once the sound is switched back on. Then vents the hisses due.
+    // Client ticks carry on while singleplayer is paused, and the sound engine only pauses sounds already playing,
+    // so nothing here may run then or it would start sounds over the pause menu.
     public static void onClientTick(ClientTickEvent.Post event) {
+        if (Minecraft.getInstance().isPaused()) {
+            return;
+        }
         PLAYING.values().removeIf(Engine::isStopped);
         for (int entityId : FLYING) {
             start(entityId);
