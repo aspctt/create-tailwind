@@ -2,6 +2,7 @@ package com.aspctt.createtailwind.jetpack;
 
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.phys.Vec3;
 
 // Where the exhaust leaves a worn jetpack: the mouths of its two nozzles, as the jetpack is drawn on the body. In
@@ -23,6 +24,14 @@ public final class JetpackNozzles {
     // head, so the nozzles follow the body's yaw: ahead of the body is (-sin, cos) of that yaw, and across it is
     // (cos, sin). A gliding body is also tipped forward, which swings the nozzles round to trail behind it.
     public static void forEach(LivingEntity entity, Visitor visitor) {
+        forEach(entity, false, visitor);
+    }
+
+    // With fromEyes, the body is placed the way a first-person camera sits in it. Vanilla tips a gliding body over
+    // about the feet, so its back reaches out ahead of the eyes the camera is at, and the nozzles would be in front
+    // of the camera. Moving the whole body so that its eyes meet the camera puts them behind it instead. Nothing
+    // changes while upright, when the body's eyes are already where the camera is.
+    public static void forEach(LivingEntity entity, boolean fromEyes, Visitor visitor) {
         double scale = entity.getScale();
         double yaw = Math.toRadians(entity.yBodyRot);
         double sin = Math.sin(yaw);
@@ -30,13 +39,26 @@ public final class JetpackNozzles {
         double tilt = glideTilt(entity);
         double tiltSin = Math.sin(tilt);
         double tiltCos = Math.cos(tilt);
+        // Up the body is straight up, tipped forward by the tilt. Out of the back is straight behind, tipped up by it.
+        double upX = -sin * tiltSin;
+        double upY = tiltCos;
+        double upZ = cos * tiltSin;
+        double backX = sin * tiltCos;
+        double backY = tiltSin;
+        double backZ = -cos * tiltCos;
         double height = NOZZLE_HEIGHT * scale;
         double behind = PLAYER_MODEL_SCALE * (Jetpacks.backDepth(entity) + NOZZLE_BEHIND_FRONT) / 16.0 * scale;
         double side = NOZZLE_SIDE * scale;
-        // Up the body is straight up, tipped forward by the tilt. Out of the back is straight behind, tipped up by it.
-        double x = entity.getX() + (-sin * tiltSin) * height + (sin * tiltCos) * behind;
-        double y = entity.getY() + tiltCos * height + tiltSin * behind;
-        double z = entity.getZ() + (cos * tiltSin) * height + (-cos * tiltCos) * behind;
+        double x = entity.getX() + upX * height + backX * behind;
+        double y = entity.getY() + upY * height + backY * behind;
+        double z = entity.getZ() + upZ * height + backZ * behind;
+        if (fromEyes && entity.isFallFlying()) {
+            // The body's eyes are at standing eye height up the body. The camera is at the eyes of the glide's pose.
+            double eyes = entity.getEyeHeight(Pose.STANDING);
+            x -= upX * eyes;
+            y += entity.getEyeHeight() - upY * eyes;
+            z -= upZ * eyes;
+        }
         visitor.accept(x - cos * side, y, z - sin * side);
         visitor.accept(x + cos * side, y, z + sin * side);
     }

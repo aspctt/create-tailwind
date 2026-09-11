@@ -16,7 +16,7 @@
 	+ Boost an elytra glide with a jetpack worn alongside the elytra, in place of jetpack flight: holding forward pushes the glide the way the player looks, up to a top speed, and draws air. Adapted from Do a Barrel Roll's thrusting, whose acceleration and top speed are the defaults
 	+ Count an elytra in the chest slot, a Curios back slot from Elytra Slot, or an Accessories cape slot from Accessories Compat: Vanilla, and give players a second Curios back slot when Elytra Slot is installed so both fit
 	+ Keep Do a Barrel Roll's own thrust from adding to the jetpack's boost when both are installed
-	+ Tip the exhaust with the body while gliding, so the smoke and sparks leave the nozzles trailing behind the player
+	+ Tip the exhaust with the body while gliding, so the smoke and sparks leave the nozzles trailing behind the player, and behind the camera in first person rather than in front of it
 	+ Add a server config for the air cost per tick, fall damage immunity, removing Invisibility while flying, and the elytra boost's acceleration and top speed
 	+ Leave a short campfire smoke trail from each of the jetpack's two nozzles: each puff shoots down out of the nozzle, then rises at half a campfire's speed
 	+ Give jetpack flight an engine sound that follows each flying player: a rush of air that grows with speed, Create's cogwheel rumble and a lowered beacon hum behind it, and a faint steam hiss from Create on takeoff and every few seconds, more often at speed, fading in and out on takeoff and landing
