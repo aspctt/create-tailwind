@@ -1,10 +1,10 @@
 package com.aspctt.createtailwind.jetpack;
 
+import com.aspctt.createtailwind.ModParticles;
 import com.aspctt.createtailwind.TailwindConfig;
 import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.equipment.armor.BacktankUtil;
 
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffects;
@@ -106,9 +106,9 @@ public final class JetpackHandler {
         double x = player.getX() + behind.x * 0.4;
         double y = player.getY() + 0.6 + behind.y * 0.4;
         double z = player.getZ() + behind.z * 0.4;
-        // Vanilla's campfire signal smoke, the particle Do a Barrel Roll uses for its thrust trail. Spawned in
-        // place with no spread or speed, so it hangs where the player was and draws the flight path.
-        level.sendParticles(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, x, y, z, 1, 0, 0, 0, 0);
+        // Campfire signal smoke, the particle Do a Barrel Roll uses for its thrust trail, cut down to a second.
+        // Spawned in place with no spread or speed, so it hangs where the player was and draws the flight path.
+        level.sendParticles(ModParticles.JETPACK_SMOKE.get(), x, y, z, 1, 0, 0, 0, 0);
         if (player.tickCount % 10 == 0) {
             level.playSound(null, player.getX(), player.getY(), player.getZ(),
                     AllSoundEvents.STEAM.getMainEvent(), SoundSource.PLAYERS, 1.0F, 0.5F);

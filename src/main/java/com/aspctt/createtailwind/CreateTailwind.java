@@ -20,6 +20,7 @@ public class CreateTailwind {
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public CreateTailwind(IEventBus modEventBus, ModContainer modContainer) {
         modContainer.registerConfig(ModConfig.Type.SERVER, TailwindConfig.SPEC);
+        ModParticles.register(modEventBus);
 
         NeoForge.EVENT_BUS.addListener(JetpackHandler::onPlayerTick);
         NeoForge.EVENT_BUS.addListener(JetpackHandler::onPlayerFlyableFall);
