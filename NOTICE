@@ -46,13 +46,11 @@ or redistributed by this project.
 
 Create: Tailwind compiles against the code of Create, licensed under the MIT
 License, Copyright (c) The Create Team / The Creators of Create. Create's own
-assets are All Rights Reserved and are not copied into this project: a
-backtank worn in a Curios or Accessories slot is drawn with Create's models,
-loaded from Create at runtime. Create is required at runtime, and is not
-bundled with or redistributed by this project.
+assets are All Rights Reserved and are not copied into this project. Create is
+required at runtime, and is not bundled with or redistributed by this project.
 
-The renderer for backtanks worn in a Curios or Accessories slot is adapted
-from Create's BacktankArmorLayer, and is used under Create's code license:
+The renderer that draws a worn jetpack on the player's back is adapted from
+Create's BacktankArmorLayer, and is used under Create's code license:
 
     MIT License
 
@@ -94,9 +92,10 @@ Lesser General Public License v3.0 or later. It is optional at runtime, and is
 not bundled with or redistributed by this project.
 
 The jetpack engine plays Create's cogwheel and steam sounds and vanilla
-Minecraft's elytra wind and beacon hum, and its exhaust draws vanilla's
-campfire smoke sprites. All are referenced by name and loaded from Create and
-Minecraft at runtime; none is copied into this project.
+Minecraft's elytra wind and beacon hum, the jetpack is put on with Create's
+copper armour sound, and its exhaust draws vanilla's campfire smoke sprites.
+All are referenced by name and loaded from Create and Minecraft at runtime;
+none is copied into this project.
 
 The jetpack flight handling is adapted from Create: Backtank is Jetpack
 (github.com/mchhui/Create-BacktankIsJetpack) and is used under the MIT License:
@@ -126,9 +125,9 @@ The jetpack flight handling is adapted from Create: Backtank is Jetpack
 
 ASSETS
 
-No assets are shipped yet. Models or textures taken from other mods will be
-listed here with their source, author, and the license or permission they are
-used under.
+The jetpack's models and texture are original to this project. Models or
+textures taken from other mods will be listed here with their source, author,
+and the license or permission they are used under.
 
 
 © 2026 ASPCT

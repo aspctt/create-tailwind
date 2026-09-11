@@ -5,12 +5,14 @@
 	+ Project setup: Stonecutter build with a NeoForge 1.21.1 target, and a Fabric 1.21.1 target prepared but not declared until Create's Fabric port reaches 1.21.1
 	+ Build against NeoForge 21.1.250 and Create 6.0.10
 	+ Name the jar CreateTailwind-<version>+<minecraft version>-<loader>.jar, and ship LICENSE and NOTICE inside it
-	+ Add jetpack flight, adapted from Create: Backtank is Jetpack: a worn backtank grants creative-style flight that draws air from it and cuts out when it runs dry
-	+ Count a backtank worn in the chest slot, a Curios back slot, or an Accessories back slot, and make backtanks equippable in both back slots
-	+ Draw a backtank worn in a Curios or Accessories back slot on the player's back, the way Create draws one in the chest slot
+	+ Add the jetpack, crafted from a copper backtank, two iron sheets, two brass sheets and two propellers
+	+ Add jetpack flight, adapted from Create: Backtank is Jetpack: a worn jetpack grants creative-style flight that draws air from it and cuts out when it runs dry
+	+ Count a jetpack worn in the chest slot, a Curios back slot, or an Accessories back slot, and draw it on the player's back in each
+	+ Charge the jetpack the way Create charges its backtank: set it down, drive the shaft input on top, and pick it back up with an empty hand. Its air, enchantments and name survive placing and breaking
+	+ Store the jetpack's air as Create's backtank air, so it takes the Capacity enchantment and supplies Create's diving helmet and air-powered tools from any of its slots
 	+ Keep jetpack flight at the normal flying speed by not letting the player sprint while jetpack flying
 	+ Add a server config for the air cost per tick, fall damage immunity, and removing Invisibility while flying
-	+ Leave a short campfire smoke trail from the bottom of the backtank
+	+ Leave a short campfire smoke trail from each of the jetpack's two nozzles
 	+ Give jetpack flight an engine sound that follows each flying player: a rush of air that grows with speed, Create's cogwheel rumble and a lowered beacon hum behind it, and a faint steam hiss from Create on takeoff and every few seconds, more often at speed, fading in and out on takeoff and landing
 	+ Add a client config to turn the smoke trail and engine sound off, set the trail's lifetime and density, and set the engine volume
 	+ Add a config screen built with Yet Another Config Lib, optional at runtime, covering the client config and, in singleplayer, the server config

@@ -15,13 +15,14 @@
 
 Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
 
-The mod is in early development. For now, Create's backtanks stand in for the jetpacks:
+The mod is in early development. The jetpack is in, and the booster is still to come:
 
-* Wear a backtank in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and you can fly the way creative mode does, by double-tapping jump.
-* A backtank in a Curios or Accessories back slot shows on your back just like one in the chest slot. With Accessories it follows the body as it is actually rendered, so reshaped player models such as Fresh Animations keep it in place.
-* Flight draws air from the backtank and cuts out when it runs dry.
+* Craft the jetpack from a copper backtank, two iron sheets, two brass sheets and two propellers.
+* Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and you can fly the way creative mode does, by double-tapping jump. It shows on your back in any of them. With Accessories it follows the body as it is actually rendered, so reshaped player models such as Fresh Animations keep it in place.
+* The jetpack holds compressed air like Create's backtank and charges the same way: set it down, turn the shaft input on top, and pick it back up with an empty hand. It keeps its air, enchantments and name through placing and breaking, and takes Create's Capacity enchantment.
+* Flight draws air from the jetpack and cuts out when it runs dry. Create's diving helmet and air-powered tools can draw on it too.
 * Jetpack flight stays at the normal flying speed. Sprinting does not speed it up.
-* The exhaust leaves a short smoke trail from the bottom of the tank, and the engine sounds while you fly: a rush of air that grows with speed, Create's cogwheel rumble and a low hum behind it, and a steam hiss as the tank vents.
+* The exhaust leaves a short smoke trail from both nozzles, and the engine sounds while you fly: a rush of air that grows with speed, Create's cogwheel rumble and a low hum behind it, and a steam hiss as the tank vents.
 * Fall damage still applies, and flying removes Invisibility. Both, along with the air cost, can be changed in the server config.
 * The config screen, opened from the mod list, needs [YACL](https://modrinth.com/mod/yacl). It lets each player turn the smoke trail and engine sound off, shorten or thin out the trail, and set the engine volume, and in singleplayer it also edits the server settings. Without YACL the mod still works, and the config files can be edited by hand.
 
