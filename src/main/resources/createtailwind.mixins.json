@@ -7,6 +7,7 @@
     "BacktankUtilMixin"
   ],
   "client": [
+    "LivingEntityMixin",
     "LocalPlayerMixin"
   ],
   "injectors": {

@@ -30,6 +30,9 @@ import net.neoforged.neoforge.network.PacketDistributor;
 // Flight is granted through NeoForge's creative flight attribute rather than the deprecated Abilities#mayfly, so
 // only this mod's own modifier is ever added or taken away, and other sources of flight are left alone. The
 // attribute is synced, so the client sees the modifier too.
+//
+// Worn with an elytra, the jetpack grants no flight and boosts the glide instead. The push itself is applied by the
+// player's own client (JetpackBoost), which says when it is boosting; the air and the exhaust are handled here.
 public final class JetpackHandler {
     private static final AttributeModifier FLIGHT =
             new AttributeModifier(Jetpacks.FLIGHT_MODIFIER_ID, 1.0, AttributeModifier.Operation.ADD_VALUE);
@@ -37,6 +40,9 @@ public final class JetpackHandler {
     // Players whose clients, and the clients tracking them, were last told they are jetpack flying. Server thread
     // only. A player is dropped from it whenever their own client starts over, so the next tick announces again.
     private static final Set<UUID> ANNOUNCED = new HashSet<>();
+
+    // Players whose own clients say they are holding forward to boost a glide. Server thread only.
+    private static final Set<UUID> BOOSTING = new HashSet<>();
 
     public static void onPlayerTick(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
@@ -51,17 +57,19 @@ public final class JetpackHandler {
         // Creative and spectator flight are the game mode's own, and do not draw on the jetpack.
         ItemStack jetpack = player.isCreative() || player.isSpectator() ? ItemStack.EMPTY : Jetpacks.findWorn(player);
         boolean fuelled = !jetpack.isEmpty() && BacktankUtil.hasAirRemaining(jetpack);
+        boolean booster = fuelled && Jetpacks.hasElytra(player);
 
         // Once the modifier is gone, and nothing else lets the player fly, ServerPlayer takes them out of the air.
-        if (!fuelled) {
+        if (!fuelled || booster) {
             flight.removeModifier(Jetpacks.FLIGHT_MODIFIER_ID);
         } else if (!flight.hasModifier(Jetpacks.FLIGHT_MODIFIER_ID)) {
             flight.addTransientModifier(FLIGHT);
         }
 
-        boolean flying = fuelled && player.getAbilities().flying;
-        announce(player, flying);
-        if (!flying) {
+        boolean flying = fuelled && !booster && player.getAbilities().flying;
+        boolean boosting = booster && player.isFallFlying() && BOOSTING.contains(player.getUUID());
+        announce(player, flying || boosting);
+        if (!flying && !boosting) {
             return;
         }
 
@@ -69,8 +77,21 @@ public final class JetpackHandler {
         if (TailwindConfig.REMOVE_INVISIBILITY.get() && player.hasEffect(MobEffects.INVISIBILITY)) {
             player.removeEffect(MobEffects.INVISIBILITY);
         }
-        player.resetFallDistance();
+        // A glide's fall is the elytra's business, as it is without a jetpack.
+        if (flying) {
+            player.resetFallDistance();
+        }
         emitExhaust(player);
+    }
+
+    // What the player's own client says about boosting a glide. Only taken up while they are gliding with a
+    // jetpack that can boost, so a client can at worst spend its own air.
+    public static void setBoosting(Player player, boolean boosting) {
+        if (boosting) {
+            BOOSTING.add(player.getUUID());
+        } else {
+            BOOSTING.remove(player.getUUID());
+        }
     }
 
     // Being able to fly is what vanilla takes as a reason to skip fall damage entirely. Unless the config says
@@ -109,6 +130,7 @@ public final class JetpackHandler {
 
     public static void onLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
         ANNOUNCED.remove(event.getEntity().getUUID());
+        BOOSTING.remove(event.getEntity().getUUID());
     }
 
     public static void onChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
@@ -122,6 +144,7 @@ public final class JetpackHandler {
     // An integrated server can be started again in the same game.
     public static void onServerStopped(ServerStoppedEvent event) {
         ANNOUNCED.clear();
+        BOOSTING.clear();
     }
 
     private static void announce(Player player, boolean flying) {

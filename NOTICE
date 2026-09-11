@@ -135,6 +135,14 @@ The jetpack flight handling is adapted from Create: Backtank is Jetpack
     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
     DEALINGS IN THE SOFTWARE.
 
+The elytra boost is adapted from the thrusting in Do a Barrel Roll by enjarai
+(github.com/enjarai/do-a-barrel-roll), by way of its NeoForge port Do Another
+Barrel Roll, and is used under the GNU General Public License v3.0. Do a
+Barrel Roll is based on Cool Elytra Roll by Jorbon. When Do a Barrel Roll is
+installed, its thrust is kept from adding to the jetpack's boost through its
+API, reached by reflection rather than compiled against. It is optional at
+runtime, and is not bundled with or redistributed by this project.
+
 
 ASSETS
 

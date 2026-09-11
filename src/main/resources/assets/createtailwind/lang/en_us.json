@@ -32,11 +32,16 @@
 
   "config.createtailwind.jetpack": "Jetpack",
   "config.createtailwind.jetpack.air_consumption": "Air Consumption per Tick",
-  "config.createtailwind.jetpack.air_consumption.description": "Average air drawn from the jetpack for every tick of flight. Fractions are drawn as a chance each tick.",
+  "config.createtailwind.jetpack.air_consumption.description": "Average air drawn from the jetpack for every tick of flight or elytra boost. Fractions are drawn as a chance each tick.",
   "config.createtailwind.jetpack.immune_to_fall_damage": "Immune to Fall Damage",
   "config.createtailwind.jetpack.immune_to_fall_damage.description": "Whether a worn jetpack protects from fall damage, the way creative flight does.",
   "config.createtailwind.jetpack.remove_invisibility": "Remove Invisibility",
   "config.createtailwind.jetpack.remove_invisibility.description": "Whether flying with a jetpack removes Invisibility, since the exhaust gives the player away.",
+  "config.createtailwind.boost": "Elytra Boost",
+  "config.createtailwind.boost.acceleration": "Acceleration",
+  "config.createtailwind.boost.acceleration.description": "How hard a jetpack worn with an elytra pushes a glide along while forward is held, in blocks per tick gained each tick from a standstill. The push fades as the glide nears the top speed.",
+  "config.createtailwind.boost.max_speed": "Top Speed",
+  "config.createtailwind.boost.max_speed.description": "The glide speed, in blocks per tick, at which the jetpack stops adding to it. A dive can still go faster.",
   "config.createtailwind.server.unavailable": "Server settings belong to the world. Change them here from a singleplayer world that is not open to LAN, or on a server in serverconfig/createtailwind-server.toml inside the world folder.",
 
   "config.createtailwind.format.ticks": "%s ticks (%s s)",

@@ -1,0 +1,10 @@
+{
+  "size": 1,
+  "operation": "ADD",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "elytraslot"
+    }
+  ]
+}

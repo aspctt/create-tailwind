@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 
 // The sparks a flying jetpack throws from its nozzles. Each client spawns them for the players it sees flying,
@@ -44,17 +45,20 @@ public final class JetpackExhaust {
         double dx = player.getX() - player.xo;
         double dy = player.getY() - player.yo;
         double dz = player.getZ() - player.zo;
+        // Out of the nozzles: down when flying upright, back along the glide when boosting an elytra.
+        Vec3 out = JetpackNozzles.exhaustDirection(player);
         JetpackNozzles.forEach(player, (x, y, z) -> {
             int count = (int) rate + (random.nextFloat() < rate - (int) rate ? 1 : 0);
             for (int i = 0; i < count; i++) {
                 // Somewhere along the path the nozzle took this tick, so a fast jetpack leaves an even stream
                 // rather than clumps a tick apart.
                 double back = random.nextDouble();
+                double eject = EJECT_SPEED * (0.6 + random.nextDouble() * 0.8);
                 level.addParticle(ModParticles.JETPACK_SPARK.get(),
                         x - dx * back, y - dy * back, z - dz * back,
-                        dx * INHERITED_MOTION + random.nextGaussian() * SCATTER,
-                        dy * INHERITED_MOTION - EJECT_SPEED * (0.6 + random.nextDouble() * 0.8),
-                        dz * INHERITED_MOTION + random.nextGaussian() * SCATTER);
+                        dx * INHERITED_MOTION + out.x * eject + random.nextGaussian() * SCATTER,
+                        dy * INHERITED_MOTION + out.y * eject,
+                        dz * INHERITED_MOTION + out.z * eject + random.nextGaussian() * SCATTER);
             }
         });
     }

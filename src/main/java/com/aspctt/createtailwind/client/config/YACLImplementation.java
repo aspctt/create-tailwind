@@ -86,6 +86,19 @@ public class YACLImplementation {
                             .binding(true, TailwindConfig.REMOVE_INVISIBILITY::get, TailwindConfig.REMOVE_INVISIBILITY::set)
                             .build())
                     .build());
+            server.group(OptionGroup.createBuilder()
+                    .name(getText("boost"))
+                    .option(getOption(Double.class, "boost", "acceleration")
+                            .controller(option -> DoubleFieldControllerBuilder.create(option)
+                                    .range(0.0, 10.0))
+                            .binding(0.1, TailwindConfig.BOOST_ACCELERATION::get, TailwindConfig.BOOST_ACCELERATION::set)
+                            .build())
+                    .option(getOption(Double.class, "boost", "max_speed")
+                            .controller(option -> DoubleFieldControllerBuilder.create(option)
+                                    .range(0.1, 100.0))
+                            .binding(2.0, TailwindConfig.BOOST_MAX_SPEED::get, TailwindConfig.BOOST_MAX_SPEED::set)
+                            .build())
+                    .build());
         } else {
             server.option(LabelOption.create(getText("server", "unavailable")));
         }

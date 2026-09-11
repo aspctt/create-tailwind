@@ -1,5 +1,6 @@
 package com.aspctt.createtailwind;
 
+import com.aspctt.createtailwind.client.JetpackBoost;
 import com.aspctt.createtailwind.client.JetpackEngineSounds;
 import com.aspctt.createtailwind.client.JetpackExhaust;
 import com.aspctt.createtailwind.client.JetpackFlight;
@@ -9,6 +10,7 @@ import com.aspctt.createtailwind.client.JetpackSmokeParticle;
 import com.aspctt.createtailwind.client.JetpackSparkParticle;
 import com.aspctt.createtailwind.client.ModPartialModels;
 import com.aspctt.createtailwind.client.compat.AccessoriesRenderers;
+import com.aspctt.createtailwind.client.compat.BarrelRollCompat;
 import com.aspctt.createtailwind.client.compat.CuriosRenderers;
 import com.aspctt.createtailwind.client.config.TailwindConfigScreen;
 
@@ -45,6 +47,8 @@ public class CreateTailwindClient {
         NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onClientTick);
         NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onLoggingOut);
         NeoForge.EVENT_BUS.addListener(JetpackExhaust::onClientTick);
+        NeoForge.EVENT_BUS.addListener(JetpackBoost::onClientTick);
+        NeoForge.EVENT_BUS.addListener(JetpackBoost::onLoggingOut);
     }
 
     private static void onRegisterParticleProviders(RegisterParticleProvidersEvent event) {
@@ -69,6 +73,9 @@ public class CreateTailwindClient {
             }
             if (ModList.get().isLoaded("accessories")) {
                 AccessoriesRenderers.register();
+            }
+            if (ModList.get().isLoaded("do_a_barrel_roll")) {
+                BarrelRollCompat.register();
             }
         });
     }

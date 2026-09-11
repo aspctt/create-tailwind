@@ -42,6 +42,24 @@ public final class Jetpacks {
         return fuelled.isEmpty() ? find(entity, Jetpacks::isJetpack) : fuelled;
     }
 
+    // Whether the entity wears an elytra that can fly right now, in the chest slot or in a Curios or Accessories
+    // slot. Elytra Slot and Accessories Compat: Vanilla, which let a glide start from those slots, both judge an
+    // elytra by canElytraFly as vanilla does, so a broken elytra counts in none of them.
+    public static boolean hasElytra(LivingEntity entity) {
+        return !find(entity, stack -> stack.canElytraFly(entity)).isEmpty();
+    }
+
+    // Whether the player's jetpack boosts an elytra glide rather than flying on its own: it has air left, and an
+    // elytra is worn alongside it. A jetpack does nothing for creative and spectator players, who fly by their game
+    // mode. Both sides can answer this, since the player's own client is sent its equipment and the air in it.
+    public static boolean isBooster(Player player) {
+        if (player.isCreative() || player.isSpectator()) {
+            return false;
+        }
+        ItemStack jetpack = findWorn(player);
+        return !jetpack.isEmpty() && BacktankUtil.hasAirRemaining(jetpack) && hasElytra(player);
+    }
+
     // Flying on a jetpack rather than by creative or spectator flight. Both sides can answer this, since the
     // creative flight attribute and its modifiers are synced to the player's own client.
     public static boolean isJetpackFlying(Player player) {
