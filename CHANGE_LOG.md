@@ -1,11 +1,11 @@
 # Create: Tailwind :: Change Log
 - - -
 
-* Unreleased: 1.0.0
+* 2026-09-11: 1.0.0
 	+ Project setup: Stonecutter build with a NeoForge 1.21.1 target, and a Fabric 1.21.1 target prepared but not declared until Create's Fabric port reaches 1.21.1
 	+ Build against NeoForge 21.1.250 and Create 6.0.10
 	+ Name the jar CreateTailwind-<version>+<minecraft version>-<loader>.jar, and ship LICENSE and NOTICE inside it
-	+ License the code under GPL-3.0-only, with the assets All Rights Reserved
+	+ License the code under GPL-3.0-only, with the assets All Rights Reserved and modpacks allowed to include the mod by reference
 	+ Add the jetpack, crafted from a copper backtank, two iron sheets, two brass sheets and two propellers, and list a full one beside the empty one in the creative tabs
 	+ Add jetpack flight, adapted from Create: Backtank is Jetpack: a worn jetpack grants creative-style flight that draws air from it and cuts out when it runs dry
 	+ Count a jetpack worn in the chest slot, a Curios back slot, or an Accessories back slot, and draw it on the player's back in each
