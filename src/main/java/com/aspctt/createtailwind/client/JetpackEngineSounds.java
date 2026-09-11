@@ -1,10 +1,8 @@
 package com.aspctt.createtailwind.client;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.aspctt.createtailwind.ModSounds;
 import com.aspctt.createtailwind.TailwindClientConfig;
@@ -16,7 +14,6 @@ import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -26,8 +23,9 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 // The jetpack engine, started and stopped by what the server says about who is jetpack flying. Three looping
 // layers follow each flying player: the rush of the exhaust, which does most of the work of sounding like a
 // jetpack, with Create's cogwheel rumble and a low beacon drone behind it for the machinery. On top of those the
-// tank vents a faint steam hiss on takeoff and then every few seconds, more often the faster the player goes. The loops climb in pitch as the player speeds
-// up, the rush most of all, and fade in on takeoff and out on landing rather than cutting.
+// tank vents a faint steam hiss on takeoff and then every few seconds, more often the faster the player goes. The
+// loops climb in pitch as the player speeds up, the rush most of all, and fade in on takeoff and out on landing
+// rather than cutting.
 public final class JetpackEngineSounds {
     // Each loop: volume at rest, how much of that volume waits for speed, pitch at rest, and pitch gained at
     // full speed.
@@ -47,35 +45,21 @@ public final class JetpackEngineSounds {
     // slowing down changes the rhythm straight away.
     private static final float HISS_RATE_AT_FULL_SPEED = 3.0F;
 
-    // Blocks per tick at which the engine is working hardest: about the top speed of jetpack flight, which
-    // cannot sprint.
-    private static final double FULL_SPEED = 0.55;
     // Fade in and out over a quarter of a second.
     private static final float FADE_STEP = 0.2F;
 
-    // Entity ids the server says are jetpack flying.
-    private static final Set<Integer> FLYING = new HashSet<>();
     private static final Map<Integer, Engine> PLAYING = new HashMap<>();
 
-    public static void setFlying(int entityId, boolean flying) {
-        if (flying) {
-            FLYING.add(entityId);
-            start(entityId);
-        } else {
-            FLYING.remove(entityId);
-        }
-    }
-
-    // Starts engines that should be running but are not: a player whose flight was announced before their entity
-    // reached this client, or every flying player once the sound is switched back on. Then vents the hisses due.
-    // Client ticks carry on while singleplayer is paused, and the sound engine only pauses sounds already playing,
-    // so nothing here may run then or it would start sounds over the pause menu.
+    // Starts the engines of players who are flying but not yet heard: ones just announced, ones whose entity had
+    // not reached this client when they were announced, or all of them once the sound is switched back on. Then
+    // vents the hisses due. Client ticks carry on while singleplayer is paused, and the sound engine only pauses
+    // sounds already playing, so nothing here may run then or it would start sounds over the pause menu.
     public static void onClientTick(ClientTickEvent.Post event) {
         if (Minecraft.getInstance().isPaused()) {
             return;
         }
         PLAYING.values().removeIf(Engine::isStopped);
-        for (int entityId : FLYING) {
+        for (int entityId : JetpackFlight.flyingIds()) {
             start(entityId);
         }
         for (Engine engine : PLAYING.values()) {
@@ -83,14 +67,7 @@ public final class JetpackEngineSounds {
         }
     }
 
-    // Entity ids mean nothing in the next level, and the server announces flight again after a respawn or a
-    // dimension change.
-    public static void onLevelChange(ClientPlayerNetworkEvent.Clone event) {
-        FLYING.clear();
-    }
-
     public static void onLoggingOut(ClientPlayerNetworkEvent.LoggingOut event) {
-        FLYING.clear();
         PLAYING.clear();
     }
 
@@ -108,14 +85,7 @@ public final class JetpackEngineSounds {
     }
 
     private static boolean isRunning(Entity entity) {
-        return !entity.isRemoved() && FLYING.contains(entity.getId()) && TailwindClientConfig.EXHAUST_SOUND.get();
-    }
-
-    // How hard the engine is working, from 0 when hovering to 1 at full speed, going by how far the entity moved
-    // since last tick.
-    private static float effort(Entity entity) {
-        double speed = Math.sqrt(entity.distanceToSqr(entity.xo, entity.yo, entity.zo));
-        return (float) Mth.clamp(speed / FULL_SPEED, 0.0, 1.0);
+        return !entity.isRemoved() && JetpackFlight.isFlying(entity) && TailwindClientConfig.EXHAUST_SOUND.get();
     }
 
     private static float configuredVolume() {
@@ -153,7 +123,7 @@ public final class JetpackEngineSounds {
             if (!isRunning(player)) {
                 return;
             }
-            ticksToHiss -= 1.0F + (HISS_RATE_AT_FULL_SPEED - 1.0F) * effort(player);
+            ticksToHiss -= 1.0F + (HISS_RATE_AT_FULL_SPEED - 1.0F) * JetpackFlight.effort(player);
             if (ticksToHiss > 0.0F) {
                 return;
             }
@@ -204,7 +174,7 @@ public final class JetpackEngineSounds {
                 return;
             }
 
-            float effort = effort(entity);
+            float effort = JetpackFlight.effort(entity);
             float fromSpeed = settings.volumeFromSpeed();
             volume = settings.volume() * fade * (1.0F - fromSpeed + fromSpeed * effort) * configuredVolume();
             pitch = settings.pitch() + settings.pitchFromSpeed() * effort;

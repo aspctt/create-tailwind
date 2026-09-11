@@ -7,6 +7,8 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public final class TailwindClientConfig {
     public static final ModConfigSpec SPEC;
 
+    public static final ModConfigSpec.BooleanValue EXHAUST_FLAME;
+    public static final ModConfigSpec.BooleanValue EXHAUST_SPARKS;
     public static final ModConfigSpec.BooleanValue EXHAUST_PARTICLES;
     public static final ModConfigSpec.IntValue PARTICLE_LIFETIME;
     public static final ModConfigSpec.IntValue PARTICLE_DENSITY;
@@ -17,6 +19,14 @@ public final class TailwindClientConfig {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         builder.push("exhaust");
+
+        EXHAUST_FLAME = builder
+                .comment("Whether flying jetpacks show a jet of air at their nozzles.")
+                .define("flame", true);
+
+        EXHAUST_SPARKS = builder
+                .comment("Whether flying jetpacks throw sparks from their nozzles.")
+                .define("sparks", true);
 
         EXHAUST_PARTICLES = builder
                 .comment("Whether jetpacks leave a smoke trail.")

@@ -10,8 +10,14 @@
   "config.createtailwind.client": "Client",
   "config.createtailwind.server": "Server",
 
-  "config.createtailwind.particles": "Exhaust Particles",
-  "config.createtailwind.particles.enabled": "Show Particles",
+  "config.createtailwind.effects": "Exhaust Effects",
+  "config.createtailwind.effects.flame": "Show Flame",
+  "config.createtailwind.effects.flame.description": "Whether flying jetpacks show a jet of air at their nozzles.",
+  "config.createtailwind.effects.sparks": "Show Sparks",
+  "config.createtailwind.effects.sparks.description": "Whether flying jetpacks throw sparks from their nozzles.",
+
+  "config.createtailwind.particles": "Smoke Trail",
+  "config.createtailwind.particles.enabled": "Show Smoke",
   "config.createtailwind.particles.enabled.description": "Whether jetpacks leave a smoke trail behind them.",
   "config.createtailwind.particles.lifetime": "Particle Lifetime",
   "config.createtailwind.particles.lifetime.description": "How long each puff of smoke lasts at most. Each one lives between three quarters of this and all of it, so the trail frays unevenly.",

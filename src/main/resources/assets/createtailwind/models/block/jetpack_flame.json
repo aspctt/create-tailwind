@@ -1,0 +1,14 @@
+{
+	"texture_size": [8, 8],
+	"textures": {"flame": "createtailwind:block/jetpack_flame_air", "particle": "createtailwind:block/jetpack_flame_air"},
+	"elements": [
+		{"from": [2, -8, 8], "to": [6, 0, 8], "shade": false, "faces": {"south": {"uv": [4, 0, 12, 16], "texture": "#flame"}}},
+		{"from": [4, -8, 6], "to": [4, 0, 10], "shade": false, "faces": {"east": {"uv": [4, 0, 12, 16], "texture": "#flame"}}},
+		{"from": [10, -8, 8], "to": [14, 0, 8], "shade": false, "faces": {"south": {"uv": [4, 0, 12, 16], "texture": "#flame"}}},
+		{"from": [12, -8, 6], "to": [12, 0, 10], "shade": false, "faces": {"east": {"uv": [4, 0, 12, 16], "texture": "#flame"}}}
+	],
+	"groups": [
+		{"name": "left_flame", "origin": [4, 0, 8], "color": 0, "children": [0, 1]},
+		{"name": "right_flame", "origin": [12, 0, 8], "color": 0, "children": [2, 3]}
+	]
+}

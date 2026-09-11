@@ -1,9 +1,12 @@
 package com.aspctt.createtailwind;
 
 import com.aspctt.createtailwind.client.JetpackEngineSounds;
+import com.aspctt.createtailwind.client.JetpackExhaust;
+import com.aspctt.createtailwind.client.JetpackFlight;
 import com.aspctt.createtailwind.client.JetpackLayer;
 import com.aspctt.createtailwind.client.JetpackRenderer;
 import com.aspctt.createtailwind.client.JetpackSmokeParticle;
+import com.aspctt.createtailwind.client.JetpackSparkParticle;
 import com.aspctt.createtailwind.client.ModPartialModels;
 import com.aspctt.createtailwind.client.compat.AccessoriesRenderers;
 import com.aspctt.createtailwind.client.compat.CuriosRenderers;
@@ -37,13 +40,16 @@ public class CreateTailwindClient {
         modEventBus.addListener(CreateTailwindClient::onRegisterParticleProviders);
         modEventBus.addListener(CreateTailwindClient::onRegisterRenderers);
         modEventBus.addListener(CreateTailwindClient::onAddLayers);
+        NeoForge.EVENT_BUS.addListener(JetpackFlight::onLevelChange);
+        NeoForge.EVENT_BUS.addListener(JetpackFlight::onLoggingOut);
         NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onClientTick);
-        NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onLevelChange);
         NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onLoggingOut);
+        NeoForge.EVENT_BUS.addListener(JetpackExhaust::onClientTick);
     }
 
     private static void onRegisterParticleProviders(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ModParticles.JETPACK_SMOKE.get(), JetpackSmokeParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.JETPACK_SPARK.get(), JetpackSparkParticle.Provider::new);
     }
 
     private static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {

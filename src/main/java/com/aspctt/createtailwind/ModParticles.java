@@ -17,6 +17,10 @@ public final class ModParticles {
     public static final Supplier<SimpleParticleType> JETPACK_SMOKE =
             PARTICLE_TYPES.register("jetpack_smoke", () -> new SimpleParticleType(false));
 
+    // Amber sparks thrown from a flying jetpack's nozzles. Spawned by each client, never sent by the server.
+    public static final Supplier<SimpleParticleType> JETPACK_SPARK =
+            PARTICLE_TYPES.register("jetpack_spark", () -> new SimpleParticleType(false));
+
     public static void register(IEventBus modEventBus) {
         PARTICLE_TYPES.register(modEventBus);
     }
