@@ -5,9 +5,12 @@ import com.aspctt.createtailwind.jetpack.JetpackHandler;
 import com.aspctt.createtailwind.network.ModNetworking;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.AllCreativeModeTabs;
+import com.simibubi.create.AllDataComponents;
 import com.simibubi.create.api.stress.BlockStressValues;
+import com.simibubi.create.content.equipment.armor.BacktankUtil;
 
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModList;
@@ -62,11 +65,15 @@ public class CreateTailwind {
         });
     }
 
-    // Next to the elytra's tab mates, and in Create's own tab.
+    // Next to the elytra's tab mates, and in Create's own tab. An empty jetpack, then a full one beside it, the way
+    // Create lists its backtanks full.
     private static void onBuildCreativeTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES
                 || event.getTabKey() == AllCreativeModeTabs.BASE_CREATIVE_TAB.getKey()) {
             event.accept(ModItems.JETPACK.get());
+            ItemStack full = new ItemStack(ModItems.JETPACK.get());
+            full.set(AllDataComponents.BACKTANK_AIR, BacktankUtil.maxAirWithoutEnchants());
+            event.accept(full);
         }
     }
 }
