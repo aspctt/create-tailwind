@@ -1,5 +1,7 @@
 {
   "block.createtailwind.jetpack": "Jetpack",
+  "createtailwind.jetpack.low": "Jetpack pressure low",
+  "createtailwind.jetpack.depleted": "Jetpack pressure depleted",
 
   "createtailwind.subtitle.jetpack_engine": "Jetpack whirs",
   "createtailwind.subtitle.jetpack_hiss": "Jetpack hisses",

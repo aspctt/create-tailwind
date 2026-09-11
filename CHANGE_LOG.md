@@ -10,6 +10,7 @@
 	+ Count a jetpack worn in the chest slot, a Curios back slot, or an Accessories back slot, and draw it on the player's back in each
 	+ Charge the jetpack the way Create charges its backtank: set it down, drive the shaft input on top, and pick it back up with an empty hand. Its air, enchantments and name survive placing and breaking
 	+ Store the jetpack's air as Create's backtank air, so it takes the Capacity enchantment and supplies Create's diving helmet and air-powered tools from any of its slots
+	+ Warn "Jetpack pressure low" and "Jetpack pressure depleted" in place of Create's backtank wording when air drawn from a jetpack runs down
 	+ Keep jetpack flight at the normal flying speed by not letting the player sprint while jetpack flying
 	+ Add a server config for the air cost per tick, fall damage immunity, and removing Invisibility while flying
 	+ Leave a short campfire smoke trail from each of the jetpack's two nozzles
