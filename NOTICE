@@ -57,7 +57,35 @@ Just Enough Items is used as a development dependency for viewing recipes in
 the development environment. It is not required at runtime, and is not bundled
 with or redistributed by this project.
 
-No third-party source code is included in this project.
+Create: Tailwind compiles against the API of Curios, licensed under the GNU
+Lesser General Public License v3.0 or later, and against Accessories, licensed
+under the MIT License. Both are optional at runtime, and neither is bundled
+with or redistributed by this project.
+
+The jetpack flight handling is adapted from Create: Backtank is Jetpack
+(github.com/mchhui/Create-BacktankIsJetpack) and is used under the MIT License:
+
+    MIT License
+
+    Copyright (c) 2026 Hueihuea
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
 
 
 ASSETS

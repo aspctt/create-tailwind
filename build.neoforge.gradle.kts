@@ -17,6 +17,10 @@ repositories {
     maven("https://maven.createmod.net") { name = "Create" }
     // Registrate.
     maven("https://maven.ithundxr.dev/snapshots") { name = "ithundxr" }
+    // Curios.
+    maven("https://maven.theillusivec4.top/") { name = "TheIllusiveC4" }
+    // Accessories.
+    maven("https://maven.wispforest.io/releases/") { name = "Wisp Forest" }
 }
 
 neoForge {
@@ -84,6 +88,13 @@ dependencies {
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${prop("minecraft_version")}:${prop("flywheel_version")}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${prop("minecraft_version")}:${prop("flywheel_version")}")
     implementation("com.tterrag.registrate:Registrate:${prop("registrate_version")}")
+
+    // Curios and Accessories are both optional. Compile against each, and load Curios in the development run.
+    compileOnly("top.theillusivec4.curios:curios-neoforge:${prop("curios_version")}:api")
+    runtimeOnly("top.theillusivec4.curios:curios-neoforge:${prop("curios_version")}")
+    compileOnly("io.wispforest:accessories-neoforge:${prop("accessories_version")}") {
+        isTransitive = false
+    }
 }
 
 // Expand the declared properties into the mod metadata template. The shared keys come from

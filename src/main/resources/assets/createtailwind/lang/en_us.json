@@ -1,0 +1,6 @@
+{
+  "createtailwind.configuration.jetpack": "Jetpack",
+  "createtailwind.configuration.airConsumptionPerTick": "Air Consumption per Tick",
+  "createtailwind.configuration.immuneToFallDamage": "Immune to Fall Damage",
+  "createtailwind.configuration.removeInvisibility": "Remove Invisibility"
+}
