@@ -19,6 +19,10 @@
 
 <p>Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.</p>
 
+<p style="text-align: center;">
+	<img src="https://i.ibb.co/wZWdT5rY/Create-Tailwind-Flying-Up.png" alt="Flying - Up">
+</p>
+
 <h3>The jetpack</h3>
 
 <p>Crafted from a copper backtank, two iron sheets, two brass sheets and two propellers. Wear it in the chest slot, or in a back slot from Curios or Accessories, and fly the way creative mode does by double-tapping jump. Flight stays at the normal flying speed, draws air from the jetpack, and cuts out when the air runs dry.</p>
