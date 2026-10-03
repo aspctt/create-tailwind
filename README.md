@@ -94,3 +94,7 @@ Please note the copyrights and trademarks in [NOTICE](./NOTICE), which also cred
 * The Create Team - [Create](https://github.com/Creators-of-Create/Create), whose compressed air powers this mod's jetpacks and boosters
 * NeoForged - [NeoForge](https://github.com/neoforged/NeoForge), and the MDK this project started from
 * mezz - [Just Enough Items](https://github.com/mezz/JustEnoughItems), used in the development environment
+
+<p align=center>
+	<a alt="BuyMeACoffee" href="https://buymeacoffee.com/aspctt"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/buymeacoffee-singular_vector.svg"></a>
+</p>
