@@ -50,3 +50,9 @@ Minecraft 1.21.1, NeoForge 21.1.250 or newer, and [Create](https://modrinth.com/
 ### License
 
 The code is GPL-3.0-only and the assets are All Rights Reserved. Modpacks may include the mod by reference, the way a CurseForge manifest or a Modrinth index does, so the launcher fetches it from an official page. Re-hosting, bundling, or altering the jar is not permitted. Contains code adapted from Create: Backtank is Jetpack, used under the MIT License, and from Do a Barrel Roll, used under the GPL.
+
+<div align="center">
+
+[![BuyMeACoffee](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/buymeacoffee-singular_vector.svg)](https://buymeacoffee.com/aspctt)
+
+</div>
