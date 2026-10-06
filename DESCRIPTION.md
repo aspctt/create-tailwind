@@ -1,27 +1,31 @@
-# <p align=center> Create: Tailwind </p>
+# <p align=center style="text-align: center;"> Create: Tailwind </p>
 
-<div align="center">
+<p align="center" style="text-align: center;">
+	<img alt="Available for" src="https://img.shields.io/badge/Available_for-1.21.1-blue">
+	<img alt="Requires" src="https://img.shields.io/badge/Requires-Create_6.0.x-blueviolet">
+	<img alt="License" src="https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-red">
+</p>
 
-![Version](https://img.shields.io/badge/Available_for-1.21.1-blue)
-![Requires](https://img.shields.io/badge/Requires-Create_6.0.x-blueviolet)
-![License](https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-red)
+<p align="center" style="text-align: center;">
+	<img alt="Available for NeoForge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg">
+	<img alt="Won't support Forge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg">
+</p>
 
-![NeoForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg)
-![Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg)
+<p align="center" style="text-align: center;">
+	<a alt="Buy Me a Coffee" href="https://buymeacoffee.com/aspctt"><img alt="Buy Me a Coffee" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/donate/buymeacoffee-singular_vector.svg"></a>
+</p>
 
-[![GitHub](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg)](https://github.com/aspctt/create-tailwind)
-[![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg)](https://modrinth.com/mod/create-tailwind)
-[![CurseForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/create-tailwind)
-
-</div>
+<p align="center" style="text-align: center;">
+	<a alt="Available on GitHub" href="https://github.com/aspctt/create-tailwind"><img alt="Available on GitHub" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg"></a>
+	<a alt="Available on Modrinth" href="https://modrinth.com/mod/create-tailwind"><img alt="Available on Modrinth" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg"></a>
+	<a alt="Available on CurseForge" href="https://www.curseforge.com/minecraft/mc-mods/create-tailwind"><img alt="Available on CurseForge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_vector.svg"></a>
+</p>
 
 Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
 
-<div align="center">
-
-![Flying - Up](https://i.ibb.co/wZWdT5rY/Create-Tailwind-Flying-Up.png)
-
-</div>
+<p align="center" style="text-align: center;">
+	<img alt="Flying - Up" src="https://i.ibb.co/wZWdT5rY/Create-Tailwind-Flying-Up.png">
+</p>
 
 ### The jetpack
 
@@ -50,9 +54,3 @@ Minecraft 1.21.1, NeoForge 21.1.250 or newer, and [Create](https://modrinth.com/
 ### License
 
 The code is GPL-3.0-only and the assets are All Rights Reserved. Modpacks may include the mod by reference, the way a CurseForge manifest or a Modrinth index does, so the launcher fetches it from an official page. Re-hosting, bundling, or altering the jar is not permitted. Contains code adapted from Create: Backtank is Jetpack, used under the MIT License, and from Do a Barrel Roll, used under the GPL.
-
-<div align="center">
-
-[![BuyMeACoffee](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/buymeacoffee-singular_vector.svg)](https://buymeacoffee.com/aspctt)
-
-</div>
