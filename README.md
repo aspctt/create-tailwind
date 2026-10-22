@@ -38,7 +38,7 @@ The mod is in early development. So far it has one jetpack, which does both:
 * Fall damage still applies, and flying or boosting removes Invisibility. Both, along with the air cost, can be changed in the server config.
 * The config screen, opened from the mod list, needs [YACL](https://modrinth.com/mod/yacl). It lets each player turn the flame, sparks, smoke trail and engine sound off, shorten or thin out the trail, and set the engine volume, and in singleplayer it also edits the server settings. Without YACL the mod still works, and the config files can be edited by hand.
 
-Version history is in [CHANGE_LOG.md](./CHANGE_LOG.md), and the text used on the mod pages is in [DESCRIPTION-MODRINTH.md](./DESCRIPTION-MODRINTH.md) and [DESCRIPTION-CURSEFORGE.md](./DESCRIPTION-CURSEFORGE.md).
+Version history is in [CHANGELOG.md](./CHANGELOG.md), and the text used on the mod pages is in [DESCRIPTION.md](./DESCRIPTION.md).
 
 ## Installation
 
