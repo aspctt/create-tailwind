@@ -1,8 +1,12 @@
+import me.modmuss50.mpp.ModPublishExtension
+
 plugins {
     id("java-library")
     id("maven-publish")
     id("net.neoforged.moddev") version "2.0.146"
     id("idea")
+    // No version: the root project declares it, for the reason given in stonecutter.gradle.kts
+    id("me.modmuss50.mod-publish-plugin")
 }
 
 apply(from = rootProject.file("common.gradle.kts"))
@@ -141,3 +145,73 @@ val generateModMetadata = tasks.register<ProcessResources>("generateModMetadata"
 }
 sourceSets.main.get().resources.srcDir(generateModMetadata)
 neoForge.ideSyncTask(generateModMetadata)
+
+// Releasing: this target's uploads. The root project holds the shared settings, the changelog and the GitHub
+// release these jars are attached to, all in stonecutter.gradle.kts.
+
+// The Minecraft versions this jar is listed for on Modrinth and CurseForge. Spelled out rather than taken
+// from minecraft_version_range, which is a Maven range neither portal can read.
+val releaseMinecraftVersions = prop("release_minecraft_versions").split(",").map { it.trim() }
+
+// "1.21-1.21.1" for a jar covering several versions, the way Modrinth titles name a range
+val releaseMinecraftLabel = if (releaseMinecraftVersions.size == 1) {
+    releaseMinecraftVersions.single()
+} else {
+    "${releaseMinecraftVersions.first()}-${releaseMinecraftVersions.last()}"
+}
+
+val rootPublishMods = rootProject.the<ModPublishExtension>()
+val modVersion = prop("mod_version")
+
+publishMods {
+    file = tasks.jar.flatMap { it.archiveFile }
+    // The portals show no release title above the notes, so they get the version as a heading
+    changelog = rootPublishMods.changelog.map { "## $modVersion\n\n$it" }
+    type = STABLE
+    // The jar's own version, such as "1.0.0+1.21.1-neoforge", which is also what the mod list shows in game
+    // and what the 1.0.0 file on CurseForge was titled. The loader is part of it because the targets are
+    // split by loader, with Fabric prepared beside NeoForge.
+    version = project.version.toString()
+    modLoaders.add("neoforge")
+    dryRun = rootPublishMods.dryRun
+
+    modrinth {
+        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        projectId = "xBqFdX6h"
+        displayName = "${prop("mod_name")} $modVersion for NeoForge $releaseMinecraftLabel"
+        minecraftVersions.addAll(releaseMinecraftVersions)
+        additionalFile(tasks.named("sourcesJar")) {
+            type = SOURCES_JAR
+        }
+        // As in neoforge.mods.toml
+        requires("create")
+        optional("yacl")
+    }
+
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        projectId = "1690478"
+        // Titled with the same version number as on Modrinth, such as "1.0.0+1.21.1-neoforge"
+        displayName = project.version.toString()
+        minecraftVersions.addAll(releaseMinecraftVersions)
+        // The mod adds blocks and items, so it is needed on both sides
+        client = true
+        server = true
+        changelogType = "markdown"
+        // As in neoforge.mods.toml. The 1.0.0 file listed Create as optional, but the jar will not load
+        // without it.
+        requires("create")
+        optional("yacl")
+        // CurseForge files an additional file under the main one it was uploaded with
+        additionalFile(tasks.named("sourcesJar")) {
+            name = "${project.version}-sources"
+        }
+    }
+
+    // Only the main jar goes on GitHub, as with the 1.0.0 release. The root project orders these uploads
+    // from the oldest Minecraft version to the newest.
+    github {
+        accessToken = providers.environmentVariable("GITHUB_TOKEN")
+        parent(rootProject.tasks.named("publishGithub"))
+    }
+}

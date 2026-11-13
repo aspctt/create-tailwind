@@ -23,6 +23,8 @@ configure<BasePluginExtension> {
 val javaVersion = 21
 configure<JavaPluginExtension> {
     toolchain.languageVersion = JavaLanguageVersion.of(javaVersion)
+    // Uploaded beside the jar on Modrinth and CurseForge, see publishMods in build.neoforge.gradle.kts
+    withSourcesJar()
 }
 
 // Expand the declared properties into the mod metadata templates. Each loader's script contributes the
@@ -43,13 +45,17 @@ val commonMetadataProperties: Map<String, String> = mapOf(
 )
 extra["commonMetadataProperties"] = commonMetadataProperties
 
-// The licence and notices travel inside the jar, suffixed so they cannot collide with another mod's.
-tasks.named<Jar>("jar") {
-    // A local rather than a script-level value: the configuration cache cannot serialise a lambda that
-    // reaches back into the script object, and a top-level val is a member of it.
-    val suffix = "_" + prop("mod_archives_name")
-    from(rootProject.files("LICENSE", "NOTICE")) {
-        rename { it + suffix }
+// The licence and notices travel inside the jar, suffixed so they cannot collide with another mod's. The
+// sources jar carries them too, since it holds the All Rights Reserved assets as well as the GPL code.
+// Both are registered by now, the sources jar by withSourcesJar() above.
+for (jarTask in listOf("jar", "sourcesJar")) {
+    tasks.named<Jar>(jarTask) {
+        // A local rather than a script-level value: the configuration cache cannot serialise a lambda that
+        // reaches back into the script object, and a top-level val is a member of it.
+        val suffix = "_" + prop("mod_archives_name")
+        from(rootProject.files("LICENSE", "NOTICE")) {
+            rename { it + suffix }
+        }
     }
 }
 

@@ -76,6 +76,14 @@ Jars are written to `versions/<target>/build/libs`, named `CreateTailwind-<versi
 
 The Fabric target compiles only the `fabric` package, which holds its entry point. Everything else is written against NeoForge and Create's NeoForge build, and waits for a Create Fabric release on 1.21.1. Declaring the target is one line in `settings.gradle.kts`, and `//? if fabric` and `//? if neoforge` are available to the source for the places the two loaders differ.
 
+### Releasing
+
+`./gradlew publishMods` uploads every target with its sources jar to Modrinth and CurseForge, and creates one GitHub release for the version with the main jars attached, using [mod-publish-plugin](https://modmuss50.github.io/mod-publish-plugin/). Each platform gets the targets one at a time, from the oldest Minecraft version to the newest. The notes come from the version's section of `CHANGELOG.md`, and the portals list each jar for the Minecraft versions in `release_minecraft_versions`.
+
+It needs three tokens in the environment: `MODRINTH_TOKEN`, a Modrinth personal access token that can create, read and write versions; `CURSEFORGE_TOKEN`, a CurseForge API token; and `GITHUB_TOKEN`, which can write the repository's contents. With any of them missing the run is a dry run, which uploads nothing and writes what it would have sent under each project's `build/publishMods`.
+
+Push the version's tag before publishing, so the release is made on it rather than on a tag GitHub creates at the tip of `main`.
+
 ## Licensing
 
 The code of Create: Tailwind is licensed under the [GNU General Public License v3.0 only](./LICENSE). The assets, meaning everything under `src/main/resources/assets/createtailwind` and the mod icon, are **All Rights Reserved** and are not covered by that licence.
