@@ -1,4 +1,4 @@
-# <p align=center style="text-align: center;"> Create: Tailwind </p>
+# <p align=center style="text-align: center;"> <img alt="Banner" src="https://i.ibb.co/QvKbNXW6/Create-Tailwind-Title.png"> </p>
 
 <p align="center" style="text-align: center;">
 	<img alt="Available for" src="https://img.shields.io/badge/Available_for-1.21.1-blue">
