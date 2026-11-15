@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - The jetpack is now the Netherite Jetpack, remodelled in netherite, brass and leather
 - Its ID is now `createtailwind:netherite_jetpack`. Jetpacks from 1.0.0 carry over, whether worn, carried, stored or placed
+- It's now crafted from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers
 
 ### Fixed
 

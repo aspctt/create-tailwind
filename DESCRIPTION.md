@@ -14,7 +14,7 @@ Create: Tailwind adds compact jetpacks and boosters that run on compressed air. 
 
 ### The jetpack
 
-Crafted from a copper backtank, two iron sheets, two brass sheets and two propellers. Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and fly the way creative mode does by double-tapping jump. Flight stays at the normal flying speed, draws air from the jetpack, and cuts out when the air runs dry.
+Crafted from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers. Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and fly the way creative mode does by double-tapping jump. Flight stays at the normal flying speed, draws air from the jetpack, and cuts out when the air runs dry.
 
 ### Compressed air
 

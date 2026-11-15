@@ -5,19 +5,22 @@
     "B": {
       "item": "create:brass_sheet"
     },
-    "C": {
-      "item": "create:copper_backtank"
-    },
-    "I": {
-      "item": "create:iron_sheet"
+    "N": {
+      "item": "create:netherite_backtank"
     },
     "P": {
       "item": "create:propeller"
+    },
+    "S": {
+      "item": "create:sturdy_sheet"
+    },
+    "X": {
+      "item": "minecraft:nether_star"
     }
   },
   "pattern": [
-    "B B",
-    "ICI",
+    "BXB",
+    "SNS",
     "P P"
   ],
   "result": {

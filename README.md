@@ -27,7 +27,7 @@ Create: Tailwind adds compact jetpacks and boosters that run on compressed air. 
 
 The mod is in early development. So far it has one jetpack, which does both:
 
-* Craft the jetpack from a copper backtank, two iron sheets, two brass sheets and two propellers.
+* Craft the jetpack from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers.
 * Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and you can fly the way creative mode does, by double-tapping jump. It shows on your back in any of them. With Accessories it follows the body as it is actually rendered, so reshaped player models such as Fresh Animations keep it in place.
 * The jetpack holds compressed air like Create's backtank and charges the same way: set it down, turn the shaft input on top, and pick it back up with an empty hand. It keeps its air, enchantments and name through placing and breaking, and takes Create's Capacity enchantment.
 * Flight draws air from the jetpack and cuts out when it runs dry. Create's diving helmet and air-powered tools can draw on it too.
