@@ -9,6 +9,7 @@ import com.simibubi.create.AllDataComponents;
 import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.content.equipment.armor.BacktankUtil;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
@@ -30,6 +31,11 @@ public class CreateTailwind {
 
     // The stress a placed jetpack puts on the shaft charging it, per RPM: the same as Create's backtanks.
     private static final double JETPACK_STRESS_IMPACT = 4.0;
+
+    // A name in this mod's namespace.
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.

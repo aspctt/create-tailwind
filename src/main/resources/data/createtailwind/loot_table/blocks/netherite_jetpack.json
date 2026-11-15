@@ -20,11 +20,11 @@
               "source": "block_entity"
             }
           ],
-          "name": "createtailwind:jetpack"
+          "name": "createtailwind:netherite_jetpack"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "createtailwind:blocks/jetpack"
+  "random_sequence": "createtailwind:blocks/netherite_jetpack"
 }

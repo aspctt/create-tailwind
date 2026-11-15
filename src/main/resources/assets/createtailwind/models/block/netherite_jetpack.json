@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"0": "createtailwind:block/jetpack",
-		"particle": "createtailwind:block/jetpack"
+		"0": "createtailwind:block/netherite_jetpack",
+		"particle": "createtailwind:block/netherite_jetpack"
 	},
 	"elements": [
 		{

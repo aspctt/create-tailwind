@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 public final class ModPartialModels {
     // The shaft input on top of a placed jetpack, which turns with the shaft that charges it.
     public static final PartialModel JETPACK_SHAFT_INPUT = PartialModel.of(
-            ResourceLocation.fromNamespaceAndPath(CreateTailwind.MOD_ID, "block/jetpack_shaft_input"));
+            ResourceLocation.fromNamespaceAndPath(CreateTailwind.MOD_ID, "block/netherite_jetpack_shaft_input"));
     // The jet of air under each nozzle of a flying jetpack.
     public static final PartialModel JETPACK_FLAME = PartialModel.of(
             ResourceLocation.fromNamespaceAndPath(CreateTailwind.MOD_ID, "block/jetpack_flame"));

@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "createtailwind:jetpack"
+    "createtailwind:netherite_jetpack"
   ],
   "neoforge:conditions": [
     {

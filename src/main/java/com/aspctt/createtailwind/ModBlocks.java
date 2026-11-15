@@ -13,8 +13,15 @@ public final class ModBlocks {
 
     // The jetpack set down on the ground, where it charges from rotation the way Create's backtank does. Built
     // like Create's copper backtank, but it does not hide the faces of the blocks around it.
-    public static final DeferredBlock<JetpackBlock> JETPACK = BLOCKS.registerBlock("jetpack", JetpackBlock::new,
+    public static final DeferredBlock<JetpackBlock> JETPACK = BLOCKS.registerBlock("netherite_jetpack", JetpackBlock::new,
             BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).noOcclusion());
+
+    // Up to 1.0.x the jetpack was registered as "jetpack". The alias loads jetpacks placed under that name as this
+    // one; ModItems and ModBlockEntityTypes alias the item and the block entity the same way. Keep all three for as
+    // long as worlds from those versions may be loaded.
+    static {
+        BLOCKS.addAlias(CreateTailwind.id("jetpack"), JETPACK.getId());
+    }
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

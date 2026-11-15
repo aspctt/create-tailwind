@@ -1,8 +1,8 @@
 {
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "createtailwind:block/jetpack",
-		"particle": "createtailwind:block/jetpack"
+		"0": "createtailwind:block/netherite_jetpack",
+		"particle": "createtailwind:block/netherite_jetpack"
 	},
 	"elements": [
 		{
