@@ -23,20 +23,22 @@
 
 ## Description
 
-Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
+Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn alone, they let you fly the way creative mode does. Worn with an elytra, they act as a booster instead and push your glide forward.
 
-The mod is in early development. So far it has one jetpack, which does both:
+The mod is in early development, and so far it has one jetpack, the Netherite Jetpack, which does both:
 
-* Craft the jetpack from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers.
-* Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and you can fly the way creative mode does, by double-tapping jump. It shows on your back in any of them. With Accessories it follows the body as it is actually rendered, so reshaped player models such as Fresh Animations keep it in place.
-* The jetpack holds compressed air like Create's backtank and charges the same way: set it down, turn the shaft input on top, and pick it back up with an empty hand. It keeps its air, enchantments and name through placing and breaking, and takes Create's Capacity enchantment.
-* Flight draws air from the jetpack and cuts out when it runs dry. Create's diving helmet and air-powered tools can draw on it too.
-* Jetpack flight stays at the normal flying speed. Sprinting does not speed it up.
-* Wear an elytra as well and the jetpack stops granting flight and boosts your glide instead: hold forward while gliding and it pushes you the way you are looking, up to a top speed, drawing air as it goes. Either one can be in the chest slot while the other is in a slot mod's slot, or both can be in slots: the elytra goes in a Curios back slot with [Elytra Slot](https://modrinth.com/mod/elytra-slot), or an Accessories cape slot with Accessories Compat: Vanilla. With Elytra Slot installed, players get a second Curios back slot so the elytra and the jetpack both fit. A broken elytra does not count, so the jetpack flies on its own again.
-* The boost's acceleration and top speed default to Do a Barrel Roll's thrust settings and can be changed in the server config. Do a Barrel Roll is not needed. When it is installed the boost works with its flight controls, and its own thrust, if switched on, stands aside while the jetpack is boosting.
-* A jet of white air glows under each nozzle and grows with speed, amber sparks fall from the nozzles, and the exhaust leaves a short smoke trail. The engine sounds while you fly or boost: a rush of air that grows with speed, Create's cogwheel rumble and a low hum behind it, and a steam hiss as the tank vents.
-* Fall damage still applies, and flying or boosting removes Invisibility. Both, along with the air cost, can be changed in the server config.
-* The config screen, opened from the mod list, needs [YACL](https://modrinth.com/mod/yacl). It lets each player turn the flame, sparks, smoke trail and engine sound off, shorten or thin out the trail, and set the engine volume, and in singleplayer it also edits the server settings. Without YACL the mod still works, and the config files can be edited by hand.
+* Craft the Netherite Jetpack from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers.
+* Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and double-tap jump to fly the way creative mode does. It shows on your back whichever slot it is in. With Accessories it follows the body as it is actually rendered, so reshaped player models such as Fresh Animations keep it in place.
+* The jetpack holds compressed air like Create's backtank and charges the same way. Set it down, turn the shaft input on top and pick it back up with an empty hand. It keeps its air, enchantments and name through placing and breaking, and takes Create's Capacity enchantment.
+* Flight draws air from the jetpack and cuts out when the tank runs dry. Create's diving helmet and air-powered tools can draw on the same air.
+* Jetpack flight stays at the normal flying speed, and sprinting does not speed it up.
+* Wear an elytra as well and the jetpack stops granting flight and boosts your glide instead. Hold forward while gliding and it pushes you the way you are looking, up to a top speed, drawing air as it goes. A broken elytra does not count, so the jetpack flies on its own again.
+* Either one can take the chest slot while the other goes in a slot from Curios or Accessories, or both can go in slots. The elytra fits a Curios back slot with [Elytra Slot](https://modrinth.com/mod/elytra-slot), and Create: Tailwind then adds a second back slot so both fit. With Accessories it goes in the cape slot through Accessories Compat: Vanilla.
+* The boost's acceleration and top speed default to Do a Barrel Roll's thrust settings and can be changed in the server config. Do a Barrel Roll is not needed. When it is installed, the boost works with its flight controls and its own thrust stands aside while the jetpack is boosting.
+* Each nozzle blows a glowing jet of white air that grows with speed, while amber sparks fall from the nozzles and the exhaust leaves a short smoke trail. The nozzle openings glow white hot with a soft halo round them while the jetpack runs, then cool through ember colours back to black over about eight seconds after it stops.
+* The engine sounds while you fly or boost. It is a rush of air that grows with speed, with Create's cogwheel rumble and a low hum behind it, and the tank vents a steam hiss on takeoff and every few seconds after, more often the faster you go.
+* Fall damage still applies, and flying or boosting removes Invisibility, since the exhaust gives you away. Both can be changed in the server config, along with the air cost.
+* The config screen opens from the mod list and needs [YACL](https://modrinth.com/mod/yacl). Each player can turn off the flame and glow, the sparks, the smoke trail and the engine sound. They can also shorten or thin out the trail and set the engine volume. In a singleplayer world that is not open to LAN, the screen edits the server settings too. Without YACL the mod still works, and the config files can be edited by hand.
 
 Version history is in [CHANGELOG.md](./CHANGELOG.md), and the text used on the mod pages is in [DESCRIPTION.md](./DESCRIPTION.md).
 
@@ -44,7 +46,7 @@ Version history is in [CHANGELOG.md](./CHANGELOG.md), and the text used on the m
 
 Place the jar in the mods folder of your Minecraft instance, alongside NeoForge and Create.
 
-**REMOVE ANY OLD VERSIONS BEFORE INSTALLING**.
+**Remove any old versions before installing.**
 
 ## Dependencies
 
@@ -74,37 +76,37 @@ Jars are written to `versions/<target>/build/libs`, named `CreateTailwind-<versi
 | 1.21.1-neoforge | declared |
 | 1.21.1-fabric | prepared, not declared: Create's Fabric port has no 1.21.1 build to compile against yet |
 
-The Fabric target compiles only the `fabric` package, which holds its entry point. Everything else is written against NeoForge and Create's NeoForge build, and waits for a Create Fabric release on 1.21.1. Declaring the target is one line in `settings.gradle.kts`, and `//? if fabric` and `//? if neoforge` are available to the source for the places the two loaders differ.
+The Fabric target compiles only the `fabric` package, which holds its entry point. Everything else is written against NeoForge and Create's NeoForge build, and waits for a Create Fabric release on 1.21.1. Declaring the target is one line in `settings.gradle.kts`, and the source can use `//? if fabric` and `//? if neoforge` where the two loaders differ.
 
 ### Releasing
 
 `./gradlew publishMods` uploads every target with its sources jar to Modrinth and CurseForge, and creates one GitHub release for the version with the main jars attached, using [mod-publish-plugin](https://modmuss50.github.io/mod-publish-plugin/). Each platform gets the targets one at a time, from the oldest Minecraft version to the newest. The notes come from the version's section of `CHANGELOG.md`, and the portals list each jar for the Minecraft versions in `release_minecraft_versions`.
 
-Releases normally go out through the Release workflow in the Actions tab, started by hand with Run workflow. Push the version's tag first: the workflow refuses to run unless the tag exists and marks the commit it is building. Ticking "dry run" shows what would be uploaded without sending anything. It reads `MODRINTH_TOKEN`, a Modrinth personal access token that can create, read and write versions, and `CURSEFORGE_TOKEN`, a CurseForge API token, from the repository's Actions secrets, and uses the workflow's own token for GitHub.
+Releases normally go out through the Release workflow in the Actions tab, started by hand with Run workflow. Push the version's tag first, since the workflow refuses to run unless the tag exists and marks the commit it is building. Ticking "dry run" shows what would be uploaded without sending anything. The workflow reads `MODRINTH_TOKEN` and `CURSEFORGE_TOKEN` from the repository's Actions secrets and uses its own token for GitHub. `MODRINTH_TOKEN` is a Modrinth personal access token that can create, read and write versions, and `CURSEFORGE_TOKEN` is a CurseForge API token.
 
-To publish from a local machine instead, set those two tokens and a `GITHUB_TOKEN` that can write the repository's contents as environment variables, then run `./gradlew publishMods`. With any of the three missing the run is a dry run, which uploads nothing and writes what it would have sent under each project's `build/publishMods`.
+To publish from a local machine instead, set those two tokens and a `GITHUB_TOKEN` that can write the repository's contents as environment variables, then run `./gradlew publishMods`. With any of the three missing, the run is a dry run, which uploads nothing and writes what it would have sent under each project's `build/publishMods`.
 
 ## Licensing
 
 The code of Create: Tailwind is licensed under the [GNU General Public License v3.0 only](./LICENSE). The assets, meaning everything under `src/main/resources/assets/createtailwind` and the mod icon, are **All Rights Reserved** and are not covered by that licence.
 
-* Modpacks may include the mod **by reference**, the way a CurseForge manifest or a Modrinth index does, so the launcher fetches it from an official page. Re-hosting, bundling, or altering the jar is not permitted.
+* Modpacks may include the mod **by reference**, the way a CurseForge manifest or a Modrinth index does, so the launcher fetches it from an official page. Re-hosting, bundling or altering the jar is not permitted.
 
-Please note the copyrights and trademarks in [NOTICE](./NOTICE), which also credits third-party code and will list any third-party models and textures along with the permission they are used under.
+The copyrights and trademarks are set out in [NOTICE](./NOTICE), which also credits third-party code and will list any third-party models and textures with the permission they are used under.
 
 ## Credits
 
 ### Core Team
 
-* aspctt - code, project lead
+* aspctt: code and project lead
 
 ### Adapted from
 
-* Hueihuea - [Create: Backtank is Jetpack](https://github.com/mchhui/Create-BacktankIsJetpack), whose flight handling the jetpack's flight is adapted from
-* enjarai - [Do a Barrel Roll](https://github.com/enjarai/do-a-barrel-roll), whose elytra thrust the jetpack's boost is adapted from
+* [Create: Backtank is Jetpack](https://github.com/mchhui/Create-BacktankIsJetpack) by Hueihuea, which the jetpack's flight is adapted from
+* [Do a Barrel Roll](https://github.com/enjarai/do-a-barrel-roll) by enjarai, whose elytra thrust the boost is adapted from
 
 ### Built against
 
-* The Create Team - [Create](https://github.com/Creators-of-Create/Create), whose compressed air powers this mod's jetpacks and boosters
-* NeoForged - [NeoForge](https://github.com/neoforged/NeoForge), and the MDK this project started from
-* mezz - [Just Enough Items](https://github.com/mezz/JustEnoughItems), used in the development environment
+* [Create](https://github.com/Creators-of-Create/Create) by the Create Team, whose compressed air powers this mod's jetpacks and boosters
+* [NeoForge](https://github.com/neoforged/NeoForge) by NeoForged, and the MDK this project started from
+* [Just Enough Items](https://github.com/mezz/JustEnoughItems) by mezz, used in the development environment
