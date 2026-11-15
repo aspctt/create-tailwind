@@ -1,31 +1,16 @@
-# <p align=center style="text-align: center;"> <img alt="Banner" src="https://i.ibb.co/QvKbNXW6/Create-Tailwind-Title.png"> </p>
+# <p align="center" style="text-align: center;"><img alt="Banner" src="https://i.ibb.co/QvKbNXW6/Create-Tailwind-Title.png"></p>
 
-<p align="center" style="text-align: center;">
-	<img alt="Available for" src="https://img.shields.io/badge/Available_for-1.21.1-blue">
-	<img alt="Requires" src="https://img.shields.io/badge/Requires-Create_6.0.x-blueviolet">
-	<img alt="License" src="https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-red">
-</p>
+<p align="center" style="text-align: center;"><img alt="Available for" src="https://img.shields.io/badge/Available_for-1.21.1-blue"> <img alt="Requires" src="https://img.shields.io/badge/Requires-Create_6.0.x-blueviolet"> <img alt="License" src="https://img.shields.io/badge/License-GPL--3.0--only_code,_ARR_assets-red"></p>
 
-<p align="center" style="text-align: center;">
-	<img alt="Available for NeoForge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg">
-	<img alt="Won't support Forge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg">
-</p>
+<p align="center" style="text-align: center;"><img alt="Available for NeoForge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg"> <img alt="Won't support Forge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg"></p>
 
-<p align="center" style="text-align: center;">
-	<a alt="Buy Me a Coffee" href="https://buymeacoffee.com/aspctt"><img alt="Buy Me a Coffee" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/donate/buymeacoffee-singular_vector.svg"></a>
-</p>
+<p align="center" style="text-align: center;"><a href="https://buymeacoffee.com/aspctt"><img alt="Buy Me a Coffee" height="40" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/donate/buymeacoffee-singular_vector.svg"></a></p>
 
-<p align="center" style="text-align: center;">
-	<a alt="Available on GitHub" href="https://github.com/aspctt/create-tailwind"><img alt="Available on GitHub" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg"></a>
-	<a alt="Available on Modrinth" href="https://modrinth.com/mod/create-tailwind"><img alt="Available on Modrinth" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg"></a>
-	<a alt="Available on CurseForge" href="https://www.curseforge.com/minecraft/mc-mods/create-tailwind"><img alt="Available on CurseForge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_vector.svg"></a>
-</p>
+<p align="center" style="text-align: center;"><a href="https://github.com/aspctt/create-tailwind"><img alt="Available on GitHub" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg"></a> <a href="https://modrinth.com/mod/create-tailwind"><img alt="Available on Modrinth" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg"></a> <a href="https://www.curseforge.com/minecraft/mc-mods/create-tailwind"><img alt="Available on CurseForge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_vector.svg"></a></p>
 
 Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn on their own they fly like a jetpack. Worn together with an elytra they act as a booster instead, pushing your glide forward.
 
-<p align="center" style="text-align: center;">
-	<img alt="Flying - Up" src="https://i.ibb.co/wZWdT5rY/Create-Tailwind-Flying-Up.png">
-</p>
+<p align="center" style="text-align: center;"><img alt="Flying - Up" src="https://i.ibb.co/wZWdT5rY/Create-Tailwind-Flying-Up.png"></p>
 
 ### The jetpack
 
