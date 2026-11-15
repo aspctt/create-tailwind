@@ -21,7 +21,7 @@ public final class TailwindClientConfig {
         builder.push("exhaust");
 
         EXHAUST_FLAME = builder
-                .comment("Whether flying jetpacks show a jet of air at their nozzles.")
+                .comment("Whether flying jetpacks show a jet of air at their nozzles, with the nozzles glowing and cooling down after.")
                 .define("flame", true);
 
         EXHAUST_SPARKS = builder

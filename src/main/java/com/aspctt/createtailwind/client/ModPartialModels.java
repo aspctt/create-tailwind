@@ -14,6 +14,10 @@ public final class ModPartialModels {
     // The jet of air under each nozzle of a flying jetpack.
     public static final PartialModel JETPACK_FLAME = PartialModel.of(
             ResourceLocation.fromNamespaceAndPath(CreateTailwind.MOD_ID, "block/jetpack_flame"));
+    // White octagons just under the nozzle openings, tinted to make them glow while a jetpack flies and cools. The
+    // flame is flat, so from straight below it vanishes edge on, and the glowing openings show the jet instead.
+    public static final PartialModel JETPACK_NOZZLE_GLOW = PartialModel.of(
+            ResourceLocation.fromNamespaceAndPath(CreateTailwind.MOD_ID, "block/netherite_jetpack_nozzle_glow"));
 
     public static void init() {
     }

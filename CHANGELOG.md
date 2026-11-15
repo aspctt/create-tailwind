@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Nozzle openings that glow white hot while flying, with a soft halo round them, then cool through ember colours back to black after landing
+
 ### Changed
 
 - The jetpack is now the Netherite Jetpack, remodelled in netherite, brass and leather

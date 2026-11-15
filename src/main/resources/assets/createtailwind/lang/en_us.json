@@ -12,7 +12,7 @@
 
   "config.createtailwind.effects": "Exhaust Effects",
   "config.createtailwind.effects.flame": "Show Flame",
-  "config.createtailwind.effects.flame.description": "Whether flying jetpacks show a jet of air at their nozzles.",
+  "config.createtailwind.effects.flame.description": "Whether flying jetpacks show a jet of air at their nozzles, with the nozzles glowing and cooling down after.",
   "config.createtailwind.effects.sparks": "Show Sparks",
   "config.createtailwind.effects.sparks.description": "Whether flying jetpacks throw sparks from their nozzles.",
 
