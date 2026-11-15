@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The jetpack is now the Netherite Jetpack, remodelled in netherite, brass and leather
 - Its ID is now `createtailwind:netherite_jetpack`. Jetpacks from 1.0.0 carry over, whether worn, carried, stored or placed
 
+### Fixed
+
+- The placed jetpack's selection box now covers the whole model, and the shaft input as it turns
+
 ## [1.0.0] - 2026-09-11
 
 First release.

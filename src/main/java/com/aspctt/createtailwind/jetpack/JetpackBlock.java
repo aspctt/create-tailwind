@@ -26,9 +26,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 // hand picks it back up into the chest slot, and breaking it keeps the air. Its facing is the way the tanks look,
 // which placement turns towards the player.
 public class JetpackBlock extends BacktankBlock {
-    // The tanks, and the shaft input on top, as modelled facing south.
+    // The tanks, and the shaft input on top, as modelled facing south. Like Create's backtank, the box reaches a
+    // pixel past the model on either side (the side valves end at 1.5 and 14.5) and back past the brass frames. The
+    // shaft input is 4 wide but turns, sweeping a circle out to 2.83 from its middle, so it gets the same 6 wide
+    // pole Create gives the backtank's; a box the input's own size left its corners poking out mid turn.
     private static final VoxelShaper SHAPE = VoxelShaper.forHorizontal(
-            Shapes.or(Block.box(2, 0, 4, 14, 13, 11), Block.box(6, 13, 6, 10, 16, 10)), Direction.SOUTH);
+            Shapes.or(Block.box(0.5, 0, 4, 15.5, 13, 12), Block.box(5, 13, 5, 11, 16, 11)), Direction.SOUTH);
 
     public JetpackBlock(Properties properties) {
         super(properties);
