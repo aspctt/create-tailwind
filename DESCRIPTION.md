@@ -14,11 +14,11 @@ Create: Tailwind adds compact jetpacks and boosters that run on compressed air. 
 
 ### The Netherite Jetpack
 
-Craft it from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers. Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and double-tap jump to fly the way creative mode does. Flight stays at the normal flying speed and draws air from the jetpack, so it cuts out when the tank runs dry. Fall damage still applies, which is worth remembering before that happens.
+Craft it from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers. Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and double-tap jump to fly the way creative mode does. Flight stays at the normal flying speed and draws air from the jetpack, so it cuts out when the tank runs dry. The time left shows beside the hotbar while you fly and flashes red once the tank runs low. Fall damage still applies, which is worth remembering before that happens.
 
 ### Compressed air
 
-The jetpack holds air like Create's backtank and charges the same way. Set it down, turn the shaft input on top and pick it back up with an empty hand. It keeps its air, enchantments and name through placing and breaking, and takes the Capacity enchantment. Create's diving helmet and air-powered tools draw on its air from any of its slots.
+The jetpack holds air like Create's backtank and charges the same way. Set it down, turn the shaft input on top and pick it back up with an empty hand. It keeps its air, enchantments and name through placing and breaking, and takes the Capacity enchantment. Create's diving helmet and air-powered tools draw on its air from any of its slots. A glass gauge on each side shows how much is left, worn or placed, and fills as it charges.
 
 ### Elytra boost
 
