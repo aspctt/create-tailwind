@@ -10,7 +10,7 @@
 
 Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn alone, they let you fly the way creative mode does. Worn with an elytra, they act as a booster instead and push your glide forward. So far there is one, the Netherite Jetpack, and it does both.
 
-<p align="center" style="text-align: center;"><img alt="Flying - Up" src="https://i.ibb.co/wZWdT5rY/Create-Tailwind-Flying-Up.png"></p>
+<p align="center" style="text-align: center;"><img alt="Flying - Up" src="https://i.ibb.co/8L25rTd9/Create-Tailwind-Flying-Up.png"></p>
 
 ### The Netherite Jetpack
 
