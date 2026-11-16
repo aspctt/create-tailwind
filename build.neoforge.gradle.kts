@@ -54,6 +54,8 @@ neoForge {
             logLevel = org.slf4j.event.Level.DEBUG
             // One run directory shared by every target, so worlds and options survive switching between them.
             gameDirectory = rootProject.file("run")
+            // Opens the window at 1600x900 rather than vanilla's 854x480
+            programArguments.addAll("--width", "1600", "--height", "900")
         }
         create("server") {
             server()
