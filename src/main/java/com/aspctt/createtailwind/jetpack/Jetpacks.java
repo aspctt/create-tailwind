@@ -20,8 +20,7 @@ import net.neoforged.neoforge.common.NeoForgeMod;
 public final class Jetpacks {
     // This mod's modifier on NeoForge's creative flight attribute, present while a jetpack is what lets the
     // player fly.
-    public static final ResourceLocation FLIGHT_MODIFIER_ID =
-            ResourceLocation.fromNamespaceAndPath(CreateTailwind.MOD_ID, "jetpack_flight");
+    public static final ResourceLocation FLIGHT_MODIFIER_ID = CreateTailwind.id("jetpack_flight");
 
     private static final boolean CURIOS = ModList.get().isLoaded("curios");
     private static final boolean ACCESSORIES = ModList.get().isLoaded("accessories");

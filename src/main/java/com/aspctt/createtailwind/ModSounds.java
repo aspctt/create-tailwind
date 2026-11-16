@@ -24,7 +24,7 @@ public final class ModSounds {
     public static final Supplier<SoundEvent> JETPACK_HISS = register("jetpack.hiss");
 
     private static Supplier<SoundEvent> register(String name) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(CreateTailwind.MOD_ID, name);
+        ResourceLocation id = CreateTailwind.id(name);
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));
     }
 
