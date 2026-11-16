@@ -59,6 +59,21 @@ for (jarTask in listOf("jar", "sourcesJar")) {
     }
 }
 
+// Jars from earlier versions would otherwise pile up in build/libs beside the new ones. Only files named for
+// another version are removed, so the jars of the version being built stay where Gradle left them and are
+// not rebuilt when nothing changed.
+val deleteOldJars = tasks.register<Delete>("deleteOldJars") {
+    val current = prop("mod_archives_name") + "-" + project.version
+    delete(fileTree(layout.buildDirectory.dir("libs")) {
+        exclude("$current.jar", "$current-*.jar")
+    })
+}
+for (jarTask in listOf("jar", "sourcesJar")) {
+    tasks.named(jarTask) {
+        dependsOn(deleteOldJars)
+    }
+}
+
 configure<PublishingExtension> {
     publications {
         register<MavenPublication>("mavenJava") {
