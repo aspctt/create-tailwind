@@ -14,7 +14,7 @@ Create: Tailwind adds compact jetpacks and boosters that run on compressed air. 
 
 ### The Netherite Jetpack
 
-Craft it from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers. Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and double-tap jump to fly the way creative mode does. Flight stays at the normal flying speed and draws air from the jetpack, so it cuts out when the tank runs dry. The time left shows beside the hotbar while you fly and flashes red once the tank runs low. Fall damage still applies, which is worth remembering before that happens.
+Craft it from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers. Like the netherite backtank, it doesn't burn in fire or lava. Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and double-tap jump to fly the way creative mode does. Flight stays at the normal flying speed and draws air from the jetpack, so it cuts out when the tank runs dry. The time left shows beside the hotbar while you fly and flashes red once the tank runs low. Fall damage still applies, which is worth remembering before that happens.
 
 ### Compressed air
 
