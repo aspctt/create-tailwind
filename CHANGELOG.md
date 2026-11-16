@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-16
+
 ### Added
 
 - Nozzle openings that glow white hot while flying, with a soft halo round them, then cool through ember colours back to black after landing
@@ -43,5 +45,6 @@ First release.
 - An engine sound that grows with speed
 - Client and server configs, with a config screen when Yet Another Config Lib is installed
 
-[Unreleased]: https://github.com/aspctt/create-tailwind/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/aspctt/create-tailwind/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/aspctt/create-tailwind/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/aspctt/create-tailwind/releases/tag/1.0.0
