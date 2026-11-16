@@ -1,5 +1,6 @@
 package com.aspctt.createtailwind;
 
+import com.aspctt.createtailwind.client.JetpackAirOverlay;
 import com.aspctt.createtailwind.client.JetpackBoost;
 import com.aspctt.createtailwind.client.JetpackEngineSounds;
 import com.aspctt.createtailwind.client.JetpackExhaust;
@@ -22,8 +23,10 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.common.NeoForge;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
@@ -42,6 +45,7 @@ public class CreateTailwindClient {
         modEventBus.addListener(CreateTailwindClient::onRegisterParticleProviders);
         modEventBus.addListener(CreateTailwindClient::onRegisterRenderers);
         modEventBus.addListener(CreateTailwindClient::onAddLayers);
+        modEventBus.addListener(CreateTailwindClient::onRegisterGuiLayers);
         NeoForge.EVENT_BUS.addListener(JetpackFlight::onLevelChange);
         NeoForge.EVENT_BUS.addListener(JetpackFlight::onLoggingOut);
         NeoForge.EVENT_BUS.addListener(JetpackEngineSounds::onClientTick);
@@ -62,6 +66,11 @@ public class CreateTailwindClient {
 
     private static void onAddLayers(EntityRenderersEvent.AddLayers event) {
         JetpackLayer.addToAll(event);
+    }
+
+    // Above the air bubbles, as Create draws its diving overlay, so it shares their place in the HUD's order
+    private static void onRegisterGuiLayers(RegisterGuiLayersEvent event) {
+        event.registerAbove(VanillaGuiLayers.AIR_LEVEL, CreateTailwind.id("jetpack_air"), JetpackAirOverlay::render);
     }
 
     // Client setup runs in parallel with other mods', and neither registry is documented as thread-safe, so the

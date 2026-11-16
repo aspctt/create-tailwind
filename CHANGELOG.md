@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Nozzle openings that glow white hot while flying, with a soft halo round them, then cool through ember colours back to black after landing
+- The flight time left beside the hotbar while flying or boosting, where Create shows a backtank's air while diving
 
 ### Changed
 
