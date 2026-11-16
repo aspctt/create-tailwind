@@ -33,9 +33,11 @@ import net.minecraft.world.level.block.state.BlockState;
 // Draws a jetpack on an entity's back, for the chest slot and for Curios and Accessories slots. Adapted from
 // Create's BacktankArmorLayer, used under the MIT License. The licence text is in NOTICE.
 public final class WornJetpackRenderer {
-    // Where the jetpack goes relative to the body's pivot, in blocks. X and Y are Create's backtank offset.
+    // Where the jetpack goes relative to the body's pivot, in blocks. X is Create's backtank offset. Y is a pixel
+    // lower than Create's, which left the harness top, at y 11 in the block model, a pixel above the torso; this
+    // lines the two up.
     public static final float OFFSET_X = -1 / 2f;
-    public static final float OFFSET_Y = 10 / 16f;
+    public static final float OFFSET_Y = 11 / 16f;
     // How far into the block model the tanks start, in pixels: the fronts of their collars and bands, the widest
     // parts. The harness starts further forward, and sinks into the body out of sight.
     private static final float FRONT_Z = 5.5f;

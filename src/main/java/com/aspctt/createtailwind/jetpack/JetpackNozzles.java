@@ -6,12 +6,12 @@ import net.minecraft.world.entity.Pose;
 import net.minecraft.world.phys.Vec3;
 
 // Where the exhaust leaves a worn jetpack: the mouths of its two nozzles, as the jetpack is drawn on the body. In
-// model pixels, the nozzles end 10 below the body's pivot, 2.5 behind the front of the tanks, which rests on the
+// model pixels, the nozzles end 11 below the body's pivot, 2.5 behind the front of the tanks, which rests on the
 // back, and 4 to either side. PlayerRenderer draws the model at 15/16 scale and LivingEntityRenderer lifts it by
 // 1.501, both before the entity's own scale.
 public final class JetpackNozzles {
     private static final double PLAYER_MODEL_SCALE = 0.9375;
-    private static final double NOZZLE_HEIGHT = PLAYER_MODEL_SCALE * (1.501 - 10 / 16.0);
+    private static final double NOZZLE_HEIGHT = PLAYER_MODEL_SCALE * (1.501 - 11 / 16.0);
     private static final double NOZZLE_BEHIND_FRONT = 2.5;
     private static final double NOZZLE_SIDE = PLAYER_MODEL_SCALE * 4 / 16.0;
 
