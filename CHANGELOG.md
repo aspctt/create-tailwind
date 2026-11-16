@@ -12,9 +12,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Nozzle openings that glow white hot while flying, with a soft halo round them, then cool through ember colours back to black after landing
 - Air gauges on both sides of the jetpack that fill and empty with the air inside, worn or placed
 - The flight time left beside the hotbar while flying or boosting, where Create shows a backtank's air while diving
-- Air gauges on both sides of the jetpack that fill and empty with the air inside, worn or placed
-- The flight time left beside the hotbar while flying or boosting, where Create shows a backtank's air while diving
-- The flight time left beside the hotbar while flying or boosting, where Create shows a backtank's air while diving
 
 ### Changed
 
@@ -22,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Its ID is now `createtailwind:netherite_jetpack`. Jetpacks from 1.0.0 carry over, whether worn, carried, stored or placed
 - It's now crafted from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers
 - The worn jetpack sits a pixel lower, with its harness level with the top of the torso
+- A placed jetpack's turning input is drawn through Flywheel, as Create's backtank is
 
 ### Fixed
 

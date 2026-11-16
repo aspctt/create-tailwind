@@ -1,7 +1,9 @@
 package com.aspctt.createtailwind.client;
 
+import com.aspctt.createtailwind.jetpack.JetpackBlock;
 import com.simibubi.create.content.equipment.armor.BacktankUtil;
 
+import dev.engine_room.flywheel.lib.transform.Affine;
 import net.createmod.catnip.render.CachedBuffers;
 import net.createmod.catnip.render.SuperByteBuffer;
 import net.minecraft.util.Mth;
@@ -21,12 +23,23 @@ public final class JetpackGauge {
         return Mth.clamp(BacktankUtil.getAir(stack) / (float) BacktankUtil.maxAir(stack), 0.0F, 1.0F);
     }
 
+    // How far a placed jetpack's block model is turned about the y axis, in degrees: its blockstate's turn, which goes
+    // the other way round
+    public static float yRotation(BlockState state) {
+        return -state.getValue(JetpackBlock.HORIZONTAL_FACING).toYRot();
+    }
+
     // The fill for a tank this full, turned with the block model by the given degrees about its middle, ready for the
-    // caller to light and draw. Callers skip an empty tank, whose gauges show bare glass. The fill is shaded across
-    // only, so squashing it leaves its texture looking the same.
+    // caller to light and draw. Callers skip an empty tank, whose gauges show bare glass.
     public static SuperByteBuffer fill(BlockState state, float yRotation, float fullness) {
-        return CachedBuffers.partial(ModPartialModels.JETPACK_GAUGE_FILL, state)
-                .center()
+        return place(CachedBuffers.partial(ModPartialModels.JETPACK_GAUGE_FILL, state), yRotation, fullness);
+    }
+
+    // Turns and squashes the fill model on anything that can be moved, turned and scaled: a buffer for the renderers,
+    // or Flywheel's instance for JetpackVisual. The fill is shaded across only, so squashing it leaves its texture
+    // looking the same.
+    public static <T extends Affine<T>> T place(T fill, float yRotation, float fullness) {
+        return fill.center()
                 .rotateYDegrees(yRotation)
                 .uncenter()
                 .translateY(FILL_BOTTOM)

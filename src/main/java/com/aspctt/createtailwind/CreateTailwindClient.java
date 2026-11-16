@@ -9,12 +9,14 @@ import com.aspctt.createtailwind.client.JetpackLayer;
 import com.aspctt.createtailwind.client.JetpackRenderer;
 import com.aspctt.createtailwind.client.JetpackSmokeParticle;
 import com.aspctt.createtailwind.client.JetpackSparkParticle;
+import com.aspctt.createtailwind.client.JetpackVisual;
 import com.aspctt.createtailwind.client.ModPartialModels;
 import com.aspctt.createtailwind.client.compat.AccessoriesRenderers;
 import com.aspctt.createtailwind.client.compat.BarrelRollCompat;
 import com.aspctt.createtailwind.client.compat.CuriosRenderers;
 import com.aspctt.createtailwind.client.config.TailwindConfigScreen;
 
+import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -73,10 +75,14 @@ public class CreateTailwindClient {
         event.registerAbove(VanillaGuiLayers.AIR_LEVEL, CreateTailwind.id("jetpack_air"), JetpackAirOverlay::render);
     }
 
-    // Client setup runs in parallel with other mods', and neither registry is documented as thread-safe, so the
-    // registration waits for the main thread.
+    // Client setup runs in parallel with other mods', and none of these registries is documented as thread-safe, so
+    // the registration waits for the main thread.
     private static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            // Flywheel draws a placed jetpack's moving parts while it runs, and skips JetpackRenderer then
+            SimpleBlockEntityVisualizer.builder(ModBlockEntityTypes.JETPACK.get())
+                    .factory(JetpackVisual::new)
+                    .apply();
             if (ModList.get().isLoaded("curios")) {
                 CuriosRenderers.register();
             }
