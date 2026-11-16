@@ -1,0 +1,25 @@
+{
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "createtailwind:block/netherite_jetpack",
+		"particle": "createtailwind:block/netherite_jetpack"
+	},
+	"elements": [
+		{
+			"name": "left_gauge_fill",
+			"from": [1.8, 9, 7],
+			"to": [1.9, 12, 8],
+			"faces": {
+				"west": {"uv": [9.25, 2.25, 9.5, 3], "texture": "#0"}
+			}
+		},
+		{
+			"name": "right_gauge_fill",
+			"from": [14.1, 9, 7],
+			"to": [14.2, 12, 8],
+			"faces": {
+				"east": {"uv": [9.5, 2.25, 9.25, 3], "texture": "#0"}
+			}
+		}
+	]
+}

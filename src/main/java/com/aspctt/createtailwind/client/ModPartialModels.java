@@ -18,6 +18,9 @@ public final class ModPartialModels {
     // flame is flat, so from straight below it vanishes edge on, and the glowing openings show the jet instead.
     public static final PartialModel JETPACK_NOZZLE_GLOW = PartialModel.of(
             ResourceLocation.fromNamespaceAndPath(CreateTailwind.MOD_ID, "block/netherite_jetpack_nozzle_glow"));
+    // The white fill behind the glass of the air gauge on each side, scaled to how full the tank is
+    public static final PartialModel JETPACK_GAUGE_FILL = PartialModel.of(
+            CreateTailwind.id("block/netherite_jetpack_gauge_fill"));
 
     public static void init() {
     }

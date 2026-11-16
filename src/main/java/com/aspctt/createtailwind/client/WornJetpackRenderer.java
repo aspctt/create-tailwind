@@ -73,9 +73,9 @@ public final class WornJetpackRenderer {
     }
 
     // Draws the jetpack's block model with its corner at the current origin, which the caller has placed at the
-    // offset above, its flame while it flies, and its nozzle openings glowing while they cool. Facing north, the
-    // block model is turned half way round, as Create turns its backtank, and the flip below then brings the harness
-    // against the body. The shaft input is left off.
+    // offset above, its gauges filled to the air in it, its flame while it flies, and its nozzle openings glowing
+    // while they cool. Facing north, the block model is turned half way round, as Create turns its backtank, and the
+    // flip below then brings the harness against the body. The shaft input is left off.
     public static void render(PoseStack ms, MultiBufferSource buffer, int light, LivingEntity entity, ItemStack stack) {
         if (entity.getPose() == Pose.SLEEPING) {
             return;
@@ -96,6 +96,14 @@ public final class WornJetpackRenderer {
                 .disableDiffuse()
                 .light(light)
                 .renderInto(ms, vc);
+        // Lit and drawn like the body, glint and all, so the fill reads as part of it
+        float fullness = JetpackGauge.fullness(stack);
+        if (fullness > 0.0F) {
+            JetpackGauge.fill(renderedState, 180, fullness)
+                    .disableDiffuse()
+                    .light(light)
+                    .renderInto(ms, vc);
+        }
         if (TailwindClientConfig.EXHAUST_FLAME.get()) {
             if (JetpackFlight.isFlying(entity)) {
                 renderFlame(ms, buffer, entity, renderedState);
