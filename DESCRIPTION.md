@@ -8,25 +8,21 @@
 
 <p align="center" style="text-align: center;"><a href="https://github.com/aspctt/create-tailwind"><img alt="Available on GitHub" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg"></a> <a href="https://modrinth.com/mod/create-tailwind"><img alt="Available on Modrinth" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg"></a> <a href="https://www.curseforge.com/minecraft/mc-mods/create-tailwind"><img alt="Available on CurseForge" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_vector.svg"></a></p>
 
-Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn alone, they let you fly the way creative mode does. Worn with an elytra, they act as a booster instead and push your glide forward. So far there is one, the Netherite Jetpack, and it does both.
+Create: Tailwind adds compact jetpacks and boosters that run on compressed air. Worn alone, they let you fly as if you're in creative mode. Worn with an elytra, they become a booster instead! So far there is only one but more to come.
 
 <p align="center" style="text-align: center;"><img alt="Flying - Up" src="https://i.ibb.co/8L25rTd9/Create-Tailwind-Flying-Up.png"></p>
 
 ### The Netherite Jetpack
 
-Craft it from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers. Like the netherite backtank, it doesn't burn in fire or lava. Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and double-tap jump to fly the way creative mode does. Flight stays at the normal flying speed and draws air from the jetpack, so it cuts out when the tank runs dry. The time left shows beside the hotbar while you fly and flashes red once the tank runs low. Fall damage still applies, which is worth remembering before that happens.
+Crafted from a netherite backtank, a nether star, two sturdy sheets, two brass sheets and two propellers. Wear it in the chest slot, or in a back slot from [Curios](https://modrinth.com/mod/curios) or [Accessories](https://modrinth.com/mod/accessories), and double-tap jump to start flying but remember to keep an eye on your fuel, as nobody is immune to fall damage.
 
 ### Compressed air
 
-The jetpack holds air like Create's backtank and charges the same way. Set it down, turn the shaft input on top and pick it back up with an empty hand. It keeps its air, enchantments and name through placing and breaking, and takes the Capacity enchantment. Create's diving helmet and air-powered tools draw on its air from any of its slots. A glass gauge on each side shows how much is left, worn or placed, and fills as it charges.
+The jetpack works with compressed air just like Create's backtank and charges the same way. Set it down, turn the shaft input on top and pick it back up with an empty hand. It keeps its air, enchantments and name through placing and breaking, and takes the Capacity enchantment. Create's diving helmet and air-powered tools draw on its air from any of its slots. A glass gauge on each side shows how much is left, worn or placed, and fills as it charges.
 
 ### Elytra boost
 
-Wear an elytra as well and the jetpack stops granting flight. Hold forward while gliding and it pushes you the way you are looking, up to a top speed, drawing air as it goes. Either one can take the chest slot while the other goes in a slot from Curios or Accessories, or both can go in slots. The elytra fits a Curios back slot with [Elytra Slot](https://modrinth.com/mod/elytra-slot), and Create: Tailwind then adds a second back slot so both fit. With Accessories it goes in the cape slot through [Accessories Compat: Vanilla](https://modrinth.com/mod/accessories-compat-vanilla). The boost works with or without Do Another Barrel Roll, and its acceleration and top speed default to Do a Barrel Roll's thrusting.
-
-### Exhaust
-
-Each nozzle blows a glowing jet of white air that grows with speed, along with amber sparks and a short smoke trail. The nozzle openings glow white hot while the jetpack runs, then cool through ember colours back to black over about eight seconds. The engine is a rush of air with Create's cogwheel rumble and a low hum behind it, and the tank vents a steam hiss on takeoff and every few seconds after.
+Wear an elytra as well and the jetpack no longer grants flight but allows you to boost instead. Hold forward while gliding and feel the speed. Either one can take the chest slot while the other goes in a slot from Curios or Accessories, or both can go in slots. The elytra fits a Curios back slot with [Elytra Slot](https://modrinth.com/mod/elytra-slot), and Create: Tailwind then adds a second back slot so both fit. With Accessories it goes in the cape slot through [Accessories Compat: Vanilla](https://modrinth.com/mod/accessories-compat-vanilla). The boost works with or without Do Another Barrel Roll, and its acceleration and top speed default to Do a Barrel Roll's thrusting.
 
 ### Configuration
 
